@@ -19,6 +19,10 @@ hold on;
 subplot(4,1,1);    
 plot(support/Fs,M(:,end));
 
+hold on;
+subplot(4,1,2);    
+plot(support/Fs,M(:,6));
+
 %xInWindows = cutSignalIntoWindows(x,25,Fs);
 %specto = calSpectogram(xInWindows, 2^11);
 %displaySpecto(specto,0.6);
