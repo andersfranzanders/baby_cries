@@ -1,6 +1,5 @@
-function [ mfccgram ] = calMFCCgram( spectogram, Es, numOfFilters, coeffsToKeep, lowerFreq, upperFreq, Fs )
+function [ mfccgram ] = calMFCCgram( spectogram, numOfFilters, coeffsToKeep, lowerFreq, upperFreq, Fs )
 [rows, cols] = size(spectogram);
-size(Es);
 
 mfccgram = zeros(rows,coeffsToKeep);
 

@@ -4,7 +4,7 @@ function [ support, featureMatrix] = windowAndExtractFeatures( x,classSignal,win
 xInWindows = cutSignalIntoWindows(x,windowSizeInMs,Fs);
 xInWindows = xInWindows(1:end-1,:);
 specto = calSpectogram(xInWindows, 2^11);
-ceptogram = calCeptogram(specto);
+%ceptogram = calCeptogram(specto);
 
 %calculate support vector for output signal of voice-detection-signals
 [rows,cols] = size(xInWindows);
@@ -20,19 +20,21 @@ ents = calUnnormalizedSpectralEntropie(specto);
 domfreqs = calMostDominantFrequency(specto,Fs);
 ZCR = calculateZeroCrossingRate(xInWindows);
 normSpecEntropies = calNormalizedSpectralEntropie(specto);
-[ cepMostDomPeak, cepNumPeaks, cepLocFirstPeak]  = calCeptralPeaks(ceptogram,Fs,100,800);
-[corMagPeak, corPeakCount] =  maximumAutocorrelationPeak( xInWindows, 50,600, Fs );
+% [ cepMostDomPeak, cepNumPeaks, cepLocFirstPeak]  = calCeptralPeaks(ceptogram,Fs,100,800);
+% [corMagPeak, corPeakCount] =  maximumAutocorrelationPeak( xInWindows, 50,600, Fs );
 
 featureMatrix(:,1) = Es(:);
-featureMatrix(:,2) = ents(:);
-featureMatrix(:,3) = domfreqs(:);
-featureMatrix(:,4) = ZCR(:);
-featureMatrix(:,5) = normSpecEntropies(:);
-featureMatrix(:,6) = cepMostDomPeak;
-featureMatrix(:,7) = cepNumPeaks;
-featureMatrix(:,8) = cepLocFirstPeak;
-featureMatrix(:,9) = corMagPeak(:);
-featureMatrix(:,10) = corPeakCount(:);
+featureMatrix(:,2) = ZCR(:);
+featureMatrix(:,3) = ents(:);
+featureMatrix(:,4) = normSpecEntropies(:);
+featureMatrix(:,5) = domfreqs(:);
+% featureMatrix(:,6) = cepMostDomPeak;
+% featureMatrix(:,7) = cepNumPeaks;
+% featureMatrix(:,8) = cepLocFirstPeak;
+% featureMatrix(:,9) = corMagPeak(:);
+% featureMatrix(:,10) = corPeakCount(:);
+
+%featureMatrix(:,11:end-1) = calMFCCgram( specto, 30, 13, 50, 10000, Fs );
 
 
 %calculate Classes for every Frame

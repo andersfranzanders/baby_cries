@@ -12,8 +12,6 @@ newSNR = mean(x.^2)/mean(n.^2);
 snrDB = 10*log10(newSNR);
 
 
-
-
 noisedX = x+n;
 noisedX = normalize(noisedX);
 

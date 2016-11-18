@@ -1,7 +1,8 @@
 function [ x,Fs,classSignal ] = readInAudioAndClassification( fileName )
 
 [x,Fs] = readInAudio(fileName);
-x = compressDynamicly(x,0.2);
+x = compressDynamicly(x,0.18);
+%x = limitDynamicly(x,0.12);
 
 classTimes = importdata((strcat(fileName,'.txt')),' ');
 

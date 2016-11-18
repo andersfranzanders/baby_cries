@@ -6,8 +6,11 @@ x = normalize(x);
 %compute threshold and ratio
 rms = sqrt(mean(x.^2));
 
-threshold = (rms/aimRms)^2.3;
-ratio = (rms/aimRms)^2.3;
+%threshold = (rms/aimRms)^2.3;
+%ratio = (rms/aimRms)^2.3;
+
+threshold = (rms/aimRms)^2;
+ratio = (rms/aimRms)^2;
 
 %compress
 for i = 1:length(x)

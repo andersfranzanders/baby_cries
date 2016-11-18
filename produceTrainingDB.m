@@ -1,13 +1,6 @@
-pathToTrainingset = '../audiobase/truncated/clean/';
+pathToTrainingset = '../audiobase/truncated/real_noise/50+5db/';
 training_set = getAllFileNamesInDirectory(pathToTrainingset);
-%training_set = {'cry_clean01','cry_clean02','cry_clean03','cry_clean04','cry_clean05','cry_clean06'};
-
-% pathToTrainingset = '../audiobase/truncated/real_noise/';
-% training_set = {
-% 'cry_clean01_corridor_5db'
-% 'cry_clean01_corridor_15db'
-% 'cry_clean02_hospital_5db'
-% 'cry_clean02_hospital_15db'};
+noiseLevel = '50+5db';
 
 featureMatrix = zeros(1,11);
 
@@ -18,24 +11,22 @@ for i = 1:length(training_set)
     training_set{i}
     [x,Fs,classSignal] = readInAudioAndClassification(strcat(pathToTrainingset,training_set{i}));
 
-   
-    %sound(x,Fs);
-    %t = (0:1/Fs:(length(x)-1)/Fs);
-    %subplot(length(training_set),1,i);    
-    %plot(t,x);
     
     [support,M] = windowAndExtractFeatures( x,classSignal,25,Fs );
     
-    %hold on;
-    %subplot(length(training_set),1,i);    
-    %plot(support/Fs,M(:,end));
 
     featureMatrix = cat(1,featureMatrix,M);
 end
 
 featureMatrix = doubleNegativeClasses(featureMatrix);
 
-%dlmwrite('matrix_out/featureMatrix_clean03.arff',featureMatrix);
-
-
-
+dlmwrite(strcat('matrix_out/featureMatrix_',noiseLevel,'_all.arff'),featureMatrix);
+dlmwrite(strcat('matrix_out/featureMatrix_',noiseLevel,'_TD.arff'),featureMatrix(:,[1,2,11]));
+dlmwrite(strcat('matrix_out/featureMatrix_',noiseLevel,'_FD.arff'),featureMatrix(:,[3,4,5,11]));
+dlmwrite(strcat('matrix_out/featureMatrix_',noiseLevel,'_CeD.arff'),featureMatrix(:,[6,7,8,11]));
+dlmwrite(strcat('matrix_out/featureMatrix_',noiseLevel,'_CoD.arff'),featureMatrix(:,[9,10,11]));
+dlmwrite(strcat('matrix_out/featureMatrix_',noiseLevel,'_TD+FD.arff'),featureMatrix(:,[1,2,3,4,5,11]));
+dlmwrite(strcat('matrix_out/featureMatrix_',noiseLevel,'_TD+CeD.arff'),featureMatrix(:,[1,2,6,7,8,11]));
+dlmwrite(strcat('matrix_out/featureMatrix_',noiseLevel,'_TD+CoD.arff'),featureMatrix(:,[1,2,9,10,11]));
+dlmwrite(strcat('matrix_out/featureMatrix_',noiseLevel,'_FD+CeD.arff'),featureMatrix(:,[3,4,5,6,7,8,11]));
+dlmwrite(strcat('matrix_out/featureMatrix_',noiseLevel,'_FD+CoD.arff'),featureMatrix(:,[3,4,5,9,10,11]));

@@ -1,10 +1,10 @@
 pathToCrySet = '../audiobase/truncated/clean/';
 pathToNoise = '../audiobase/truncated/noise/';
-outPath = '../audiobase/truncated/real_noise/25db/';
+outPath = '../audiobase/truncated/real_noise/50+5db/';
 
 
 crySignals = {'cry_clean01','cry_clean02','cry_clean03','cry_clean04','cry_clean05','cry_clean06'};
-SNRsinDB = [25];
+SNRsinDB = [50,5];
 noiseSignals = {'corridor','hospital','barcelona'};
 
 %Plot Input Signal
@@ -22,17 +22,7 @@ for noiseIndex = 1:length(noiseSignals)
             [n,Fs] = readInAudio(strcat(pathToNoise,noiseSignal));
             n = n(1:length(x));
 
-            t = (0:1/Fs:(length(x)-1)/Fs);
-    %         subplot(3,1,1)
-    %         plot(t,x);
-    % 
-    %         hold on;
-    %         subplot(3,1,2)
-    %         plot(t,n);
-
             noisedX = addNoiseToCry(x,n,SNRinDB);
-    %         subplot(3,1,3)
-    %         plot(t,noisedX);
 
             filename = strcat(outPath,crySignal,'_',noiseSignal,'_',num2str(SNRinDB),'db');
             audiowrite(strcat(filename,'.wav'),noisedX,Fs,'BitsPerSample',16);
