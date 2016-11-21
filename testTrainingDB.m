@@ -22,6 +22,10 @@ for i = 1:length(training_set)
     
      hold on;
     subplot(length(training_set),1,i);    
+    plot(support/Fs,thresholdedM);
+    
+     hold on;
+    subplot(length(training_set),1,i);    
     plot(support/Fs,postProcessedM);
     
 

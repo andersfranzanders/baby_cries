@@ -1,0 +1,66 @@
+
+Options: -M 2 -V 0.001 -N 3 -S 1 -L 4 
+
+
+REPTree
+============
+
+unnormalizedSpectralEntropy < 683.94
+|   energy < 0.01 : 0 (6009/141) [2989/79]
+|   energy >= 0.01
+|   |   mostDominantFrequency < 484.5 : 0 (6857/1112) [3458/590]
+|   |   mostDominantFrequency >= 484.5
+|   |   |   unnormalizedSpectralEntropy < -33.55 : 0 (674/161) [359/86]
+|   |   |   unnormalizedSpectralEntropy >= -33.55 : 1 (2577/701) [1310/385]
+unnormalizedSpectralEntropy >= 683.94
+|   zeroCrossingRate < 0.04
+|   |   mostDominantFrequency < 312.23
+|   |   |   unnormalizedSpectralEntropy < 1484.75 : 0 (712/287) [358/165]
+|   |   |   unnormalizedSpectralEntropy >= 1484.75 : 1 (203/36) [109/24]
+|   |   mostDominantFrequency >= 312.23
+|   |   |   energy < 0.11 : 0 (116/44) [62/26]
+|   |   |   energy >= 0.11 : 1 (1886/194) [1015/85]
+|   zeroCrossingRate >= 0.04 : 1 (8136/224) [3925/115]
+
+Size of the tree : 17
+
+Time taken to build model: 0.67 seconds
+Time taken to test model on training data: 0.32 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances       36300               89.0688 
+Incorrectly Classified Instances      4455               10.9312 
+Kappa statistic                          0.7812
+Mean absolute error                      0.1737
+Root mean squared error                  0.2947
+Relative absolute error                 34.7506 
+Root relative squared error             58.9497 
+Total Number of Instances            40755     
+
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+ 18903  1764 |     a = 0
+  2691 17397 |     b = 1
+
+
+=== Error on test data ===
+
+Correctly Classified Instances       17104               83.9295 
+Incorrectly Classified Instances      3275               16.0705 
+Kappa statistic                          0.6783
+Mean absolute error                      0.2314
+Root mean squared error                  0.35  
+Relative absolute error                 46.2929 
+Root relative squared error             70.0154 
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 8904 1431 |    a = 0
+ 1844 8200 |    b = 1
+

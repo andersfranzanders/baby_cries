@@ -1,0 +1,66 @@
+
+Options: -M 2 -V 0.001 -N 3 -S 1 -L 4 
+
+
+REPTree
+============
+
+corMagPeak < 0.71
+|   corPeakCount < 87.5
+|   |   corPeakCount < 12.5 : 0 (3427/366) [1770/178]
+|   |   corPeakCount >= 12.5
+|   |   |   corMagPeak < 0.48 : 0 (5715/1533) [2808/792]
+|   |   |   corMagPeak >= 0.48 : 1 (3160/1558) [1506/743]
+|   corPeakCount >= 87.5 : 0 (3504/109) [1781/52]
+corMagPeak >= 0.71
+|   corMagPeak < 1.06
+|   |   corPeakCount < 46.5
+|   |   |   corPeakCount < 10.5 : 0 (521/203) [256/118]
+|   |   |   corPeakCount >= 10.5 : 1 (2379/756) [1270/405]
+|   |   corPeakCount >= 46.5
+|   |   |   corPeakCount < 106.5 : 1 (1266/86) [590/43]
+|   |   |   corPeakCount >= 106.5 : 0 (51/5) [21/1]
+|   corMagPeak >= 1.06 : 1 (7147/376) [3583/203]
+
+Size of the tree : 17
+
+Time taken to build model: 0.67 seconds
+Time taken to test model on training data: 0.21 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances       33228               81.5311 
+Incorrectly Classified Instances      7527               18.4689 
+Kappa statistic                          0.6308
+Mean absolute error                      0.2529
+Root mean squared error                  0.3556
+Relative absolute error                 50.5903 
+Root relative squared error             71.1268 
+Total Number of Instances            40755     
+
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+ 16497  4170 |     a = 0
+  3357 16731 |     b = 1
+
+
+=== Error on test data ===
+
+Correctly Classified Instances       17214               84.4693 
+Incorrectly Classified Instances      3165               15.5307 
+Kappa statistic                          0.6901
+Mean absolute error                      0.2012
+Root mean squared error                  0.3161
+Relative absolute error                 40.2415 
+Root relative squared error             63.2346 
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 7860 2475 |    a = 0
+  690 9354 |    b = 1
+

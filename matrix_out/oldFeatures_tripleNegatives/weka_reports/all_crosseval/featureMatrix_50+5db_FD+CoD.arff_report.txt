@@ -1,0 +1,65 @@
+
+Options: -M 2 -V 0.001 -N 3 -S 1 -L 4 
+
+
+REPTree
+============
+
+unnormalizedSpectralEntropy < 683.94
+|   corMagPeak < 1 : 0 (14133/1738) [7101/893]
+|   corMagPeak >= 1
+|   |   unnormalizedSpectralEntropy < -37.6
+|   |   |   normalizedSpectralEntropy < -4.99 : 0 (274/30) [145/26]
+|   |   |   normalizedSpectralEntropy >= -4.99 : 1 (16/0) [12/0]
+|   |   unnormalizedSpectralEntropy >= -37.6 : 1 (1694/188) [858/109]
+unnormalizedSpectralEntropy >= 683.94
+|   corMagPeak < 0.88
+|   |   normalizedSpectralEntropy < -4.93 : 1 (3220/301) [1593/146]
+|   |   normalizedSpectralEntropy >= -4.93
+|   |   |   corMagPeak < 0.49 : 0 (494/127) [242/72]
+|   |   |   corMagPeak >= 0.49 : 1 (504/196) [252/95]
+|   corMagPeak >= 0.88 : 1 (6835/87) [3382/42]
+
+Size of the tree : 15
+
+Time taken to build model: 1.26 seconds
+Time taken to test model on training data: 0.28 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances       36705               90.0626 
+Incorrectly Classified Instances      4050                9.9374 
+Kappa statistic                          0.801 
+Mean absolute error                      0.1704
+Root mean squared error                  0.2919
+Relative absolute error                 34.0935 
+Root relative squared error             58.3896 
+Total Number of Instances            40755     
+
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+ 19503  1164 |     a = 0
+  2886 17202 |     b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances       36644               89.9129 
+Incorrectly Classified Instances      4111               10.0871 
+Kappa statistic                          0.798 
+Mean absolute error                      0.1716
+Root mean squared error                  0.2939
+Relative absolute error                 34.3347 
+Root relative squared error             58.7937 
+Total Number of Instances            40755     
+
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+ 19495  1172 |     a = 0
+  2939 17149 |     b = 1
+

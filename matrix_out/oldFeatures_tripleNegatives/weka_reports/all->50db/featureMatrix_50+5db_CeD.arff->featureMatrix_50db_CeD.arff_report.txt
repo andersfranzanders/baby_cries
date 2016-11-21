@@ -1,0 +1,64 @@
+
+Options: -M 2 -V 0.001 -N 3 -S 1 -L 4 
+
+
+REPTree
+============
+
+cepstralMostDominantPeak < 0.02
+|   cepstralMostDominantPeak < 0.01 : 0 (9109/860) [4533/419]
+|   cepstralMostDominantPeak >= 0.01
+|   |   cepstralLocFirstPeak < 4.5 : 0 (2560/628) [1316/329]
+|   |   cepstralLocFirstPeak >= 4.5
+|   |   |   cepstralNumPeaks < 1.5 : 0 (2289/818) [1215/484]
+|   |   |   cepstralNumPeaks >= 1.5 : 1 (825/350) [438/166]
+cepstralMostDominantPeak >= 0.02
+|   cepstralMostDominantPeak < 0.04
+|   |   cepstralLocFirstPeak < 15.5 : 1 (3756/1107) [1901/555]
+|   |   cepstralLocFirstPeak >= 15.5
+|   |   |   cepstralNumPeaks < 1.5 : 0 (558/184) [317/112]
+|   |   |   cepstralNumPeaks >= 1.5 : 1 (134/38) [62/19]
+|   cepstralMostDominantPeak >= 0.04 : 1 (7939/257) [3803/112]
+
+Size of the tree : 15
+
+Time taken to build model: 0.59 seconds
+Time taken to test model on training data: 0.22 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances       34317               84.2032 
+Incorrectly Classified Instances      6438               15.7968 
+Kappa statistic                          0.6837
+Mean absolute error                      0.2341
+Root mean squared error                  0.3421
+Relative absolute error                 46.8317 
+Root relative squared error             68.4337 
+Total Number of Instances            40755     
+
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+ 18063  2604 |     a = 0
+  3834 16254 |     b = 1
+
+
+=== Error on test data ===
+
+Correctly Classified Instances       17648               86.5989 
+Incorrectly Classified Instances      2731               13.4011 
+Kappa statistic                          0.7318
+Mean absolute error                      0.2128
+Root mean squared error                  0.3192
+Relative absolute error                 42.5596 
+Root relative squared error             63.8534 
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 9093 1242 |    a = 0
+ 1489 8555 |    b = 1
+

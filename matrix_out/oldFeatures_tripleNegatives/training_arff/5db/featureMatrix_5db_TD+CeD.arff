@@ -1,4 +1,13 @@
-0,0,0,0,0,0
+@relation featureMatrix
+
+@ATTRIBUTE energy	REAL
+@ATTRIBUTE zeroCrossingRate REAL
+@ATTRIBUTE cepstralMostDominantPeak REAL
+@ATTRIBUTE cepstralNumPeaks REAL
+@ATTRIBUTE cepstralLocFirstPeak REAL
+@ATTRIBUTE class	{0,1}
+
+@DATA
 0.06319,0.049909,0.0018094,0,0,0
 0.061444,0.049002,0.014567,1,28,0
 0.053477,0.049002,0.0024564,0,0,0

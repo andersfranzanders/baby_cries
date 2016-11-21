@@ -1,4 +1,11 @@
-0,0,0
+@relation featureMatrix
+
+
+@ATTRIBUTE corMagPeak REAL
+@ATTRIBUTE corPeakCount REAL
+@ATTRIBUTE class	{0,1}
+
+@DATA
 0.46919,22,0
 0.42134,21,0
 0.49937,23,0

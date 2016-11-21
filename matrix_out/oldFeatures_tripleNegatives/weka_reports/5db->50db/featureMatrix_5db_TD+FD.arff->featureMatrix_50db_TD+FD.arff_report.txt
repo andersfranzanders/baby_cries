@@ -1,0 +1,68 @@
+
+Options: -M 2 -V 0.001 -N 3 -S 1 -L 4 
+
+
+REPTree
+============
+
+unnormalizedSpectralEntropy < 798.63
+|   unnormalizedSpectralEntropy < 493.25
+|   |   mostDominantFrequency < 742.9 : 0 (5496/659) [2715/295]
+|   |   mostDominantFrequency >= 742.9
+|   |   |   energy < 0.06 : 0 (167/44) [74/17]
+|   |   |   energy >= 0.06 : 1 (129/53) [65/28]
+|   unnormalizedSpectralEntropy >= 493.25
+|   |   zeroCrossingRate < 0.03 : 0 (970/162) [482/75]
+|   |   zeroCrossingRate >= 0.03 : 1 (1005/424) [530/212]
+unnormalizedSpectralEntropy >= 798.63
+|   zeroCrossingRate < 0.03
+|   |   normalizedSpectralEntropy < -4.79
+|   |   |   energy < 0.12 : 0 (39/13) [15/5]
+|   |   |   energy >= 0.12 : 1 (334/26) [161/7]
+|   |   normalizedSpectralEntropy >= -4.79
+|   |   |   unnormalizedSpectralEntropy < 1286.4 : 0 (288/72) [130/34]
+|   |   |   unnormalizedSpectralEntropy >= 1286.4 : 1 (465/150) [232/72]
+|   zeroCrossingRate >= 0.03 : 1 (4693/227) [2389/136]
+
+Size of the tree : 19
+
+Time taken to build model: 0.32 seconds
+Time taken to test model on training data: 0.13 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances       17668               86.6971 
+Incorrectly Classified Instances      2711               13.3029 
+Kappa statistic                          0.7339
+Mean absolute error                      0.2085
+Root mean squared error                  0.3229
+Relative absolute error                 41.7045 
+Root relative squared error             64.579  
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 9000 1335 |    a = 0
+ 1376 8668 |    b = 1
+
+
+=== Error on test data ===
+
+Correctly Classified Instances       18080               88.7188 
+Incorrectly Classified Instances      2299               11.2812 
+Kappa statistic                          0.7736
+Mean absolute error                      0.2261
+Root mean squared error                  0.3248
+Relative absolute error                 45.2279 
+Root relative squared error             64.9615 
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+ 10317    18 |     a = 0
+  2281  7763 |     b = 1
+

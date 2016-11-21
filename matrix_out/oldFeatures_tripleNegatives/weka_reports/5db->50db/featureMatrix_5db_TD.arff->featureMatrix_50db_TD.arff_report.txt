@@ -1,0 +1,64 @@
+
+Options: -M 2 -V 0.001 -N 3 -S 1 -L 4 
+
+
+REPTree
+============
+
+energy < 0.12
+|   zeroCrossingRate < 0.03 : 0 (3602/371) [1753/163]
+|   zeroCrossingRate >= 0.03
+|   |   energy < 0.09 : 0 (2836/532) [1388/254]
+|   |   energy >= 0.09 : 1 (1506/577) [802/308]
+energy >= 0.12
+|   zeroCrossingRate < 0.03
+|   |   zeroCrossingRate < 0.01
+|   |   |   energy < 0.2 : 0 (376/39) [200/18]
+|   |   |   energy >= 0.2 : 1 (48/8) [26/7]
+|   |   zeroCrossingRate >= 0.01
+|   |   |   energy < 0.14 : 0 (257/112) [124/47]
+|   |   |   energy >= 0.14 : 1 (652/145) [322/65]
+|   zeroCrossingRate >= 0.03 : 1 (4309/143) [2178/82]
+
+Size of the tree : 15
+
+Time taken to build model: 0.19 seconds
+Time taken to test model on training data: 0.12 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances       17508               85.912  
+Incorrectly Classified Instances      2871               14.088  
+Kappa statistic                          0.7181
+Mean absolute error                      0.2163
+Root mean squared error                  0.3289
+Relative absolute error                 43.2695 
+Root relative squared error             65.7795 
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 9000 1335 |    a = 0
+ 1536 8508 |    b = 1
+
+
+=== Error on test data ===
+
+Correctly Classified Instances       17673               86.7216 
+Incorrectly Classified Instances      2706               13.2784 
+Kappa statistic                          0.7334
+Mean absolute error                      0.2397
+Root mean squared error                  0.3415
+Relative absolute error                 47.9532 
+Root relative squared error             68.3118 
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+ 10335     0 |     a = 0
+  2706  7338 |     b = 1
+

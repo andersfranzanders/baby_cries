@@ -1,0 +1,65 @@
+
+Options: -M 2 -V 0.001 -N 3 -S 1 -L 4 
+
+
+REPTree
+============
+
+cepstralMostDominantPeak < 0.02
+|   cepstralMostDominantPeak < 0.01 : 0 (9109/860) [4533/419]
+|   cepstralMostDominantPeak >= 0.01
+|   |   cepstralLocFirstPeak < 4.5 : 0 (2560/628) [1316/329]
+|   |   cepstralLocFirstPeak >= 4.5
+|   |   |   cepstralNumPeaks < 1.5 : 0 (2289/818) [1215/484]
+|   |   |   cepstralNumPeaks >= 1.5 : 1 (825/350) [438/166]
+cepstralMostDominantPeak >= 0.02
+|   cepstralMostDominantPeak < 0.04
+|   |   cepstralLocFirstPeak < 15.5 : 1 (3756/1107) [1901/555]
+|   |   cepstralLocFirstPeak >= 15.5
+|   |   |   cepstralNumPeaks < 1.5 : 0 (558/184) [317/112]
+|   |   |   cepstralNumPeaks >= 1.5 : 1 (134/38) [62/19]
+|   cepstralMostDominantPeak >= 0.04 : 1 (7939/257) [3803/112]
+
+Size of the tree : 15
+
+Time taken to build model: 0.56 seconds
+Time taken to test model on training data: 0.19 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances       34317               84.2032 
+Incorrectly Classified Instances      6438               15.7968 
+Kappa statistic                          0.6837
+Mean absolute error                      0.2341
+Root mean squared error                  0.3421
+Relative absolute error                 46.8317 
+Root relative squared error             68.4337 
+Total Number of Instances            40755     
+
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+ 18063  2604 |     a = 0
+  3834 16254 |     b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances       34336               84.2498 
+Incorrectly Classified Instances      6419               15.7502 
+Kappa statistic                          0.6846
+Mean absolute error                      0.234 
+Root mean squared error                  0.3423
+Relative absolute error                 46.8025 
+Root relative squared error             68.4689 
+Total Number of Instances            40755     
+
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+ 18128  2539 |     a = 0
+  3880 16208 |     b = 1
+

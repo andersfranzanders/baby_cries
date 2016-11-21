@@ -1,0 +1,64 @@
+
+Options: -M 2 -V 0.001 -N 3 -S 1 -L 4 
+
+
+REPTree
+============
+
+unnormalizedSpectralEntropy < 798.63
+|   cepstralMostDominantPeak < 0.01 : 0 (5354/595) [2644/284]
+|   cepstralMostDominantPeak >= 0.01
+|   |   unnormalizedSpectralEntropy < 481.5 : 0 (1491/358) [743/163]
+|   |   unnormalizedSpectralEntropy >= 481.5
+|   |   |   corMagPeak < 0.09 : 0 (94/14) [60/5]
+|   |   |   corMagPeak >= 0.09 : 1 (828/273) [419/129]
+unnormalizedSpectralEntropy >= 798.63
+|   cepstralNumPeaks < 1.5
+|   |   corMagPeak < 0.88
+|   |   |   cepstralMostDominantPeak < 0.01 : 0 (381/112) [172/48]
+|   |   |   cepstralMostDominantPeak >= 0.01 : 1 (511/182) [253/82]
+|   |   corMagPeak >= 0.88 : 1 (555/67) [298/44]
+|   cepstralNumPeaks >= 1.5 : 1 (4372/127) [2204/71]
+
+Size of the tree : 15
+
+Time taken to build model: 0.47 seconds
+Time taken to test model on training data: 0.18 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances       17825               87.4675 
+Incorrectly Classified Instances      2554               12.5325 
+Kappa statistic                          0.7491
+Mean absolute error                      0.2008
+Root mean squared error                  0.3169
+Relative absolute error                 40.1677 
+Root relative squared error             63.378  
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 9360  975 |    a = 0
+ 1579 8465 |    b = 1
+
+
+=== Error on test data ===
+
+Correctly Classified Instances       17924               87.9533 
+Incorrectly Classified Instances      2455               12.0467 
+Kappa statistic                          0.7582
+Mean absolute error                      0.198 
+Root mean squared error                  0.3098
+Relative absolute error                 39.6128 
+Root relative squared error             61.9575 
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+ 10335     0 |     a = 0
+  2455  7589 |     b = 1
+

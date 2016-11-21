@@ -1,4 +1,13 @@
-0,0,0,0,0,0
+@relation featureMatrix
+
+@ATTRIBUTE unnormalizedSpectralEntropy 	REAL
+@ATTRIBUTE normalizedSpectralEntropy REAL
+@ATTRIBUTE mostDominantFrequency 	REAL
+@ATTRIBUTE corMagPeak REAL
+@ATTRIBUTE corPeakCount REAL
+@ATTRIBUTE class	{0,1}
+
+@DATA
 378.19,-5.0016,732.13,0.46919,22,0
 301.99,-5.2119,150.73,0.42134,21,0
 270.24,-5.2737,1033.6,0.49937,23,0

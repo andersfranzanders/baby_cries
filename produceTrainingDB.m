@@ -1,6 +1,6 @@
-pathToTrainingset = '../audiobase/truncated/real_noise/5db/';
+pathToTrainingset = '../audiobase/truncated/real_noise/50db/';
 training_set = getAllFileNamesInDirectory(pathToTrainingset);
-noiseLevel = '5db';
+noiseLevel = '50db';
 outPath = 'matrix_out/oldFeatures_tripleNegatives/training_arff/';
 
 featureMatrix = zeros(1,11);

@@ -1,4 +1,13 @@
-0,0,0,0,0,0
+@relation featureMatrix
+
+@ATTRIBUTE energy	REAL
+@ATTRIBUTE zeroCrossingRate REAL
+@ATTRIBUTE unnormalizedSpectralEntropy 	REAL
+@ATTRIBUTE normalizedSpectralEntropy REAL
+@ATTRIBUTE mostDominantFrequency 	REAL
+@ATTRIBUTE class	{0,1}
+
+@DATA
 0.06319,0.049909,378.19,-5.0016,732.13,0
 0.061444,0.049002,301.99,-5.2119,150.73,0
 0.053477,0.049002,270.24,-5.2737,1033.6,0
