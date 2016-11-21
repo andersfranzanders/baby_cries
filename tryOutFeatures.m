@@ -15,17 +15,22 @@ plot(t,x);
 
 [support,M] = windowAndExtractFeatures( x,classSignal,25,Fs );
 
+
+
+
+
+MwithDeltas = addSubtractedDeltas(M);
+
 hold on;
 subplot(4,1,1);    
-plot(support/Fs,M(:,end));
+plot(support/Fs,MwithDeltas(:,end));
 
 hold on;
 subplot(4,1,2);    
-plot(support/Fs,M(:,6));
+plot(support/Fs,M(:,3));
 
-%xInWindows = cutSignalIntoWindows(x,25,Fs);
-%specto = calSpectogram(xInWindows, 2^11);
-%displaySpecto(specto,0.6);
-
+hold on;
+subplot(4,1,2);    
+plot(support/Fs,2*MwithDeltas(:,13));
 
 
