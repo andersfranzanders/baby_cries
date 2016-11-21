@@ -1,0 +1,67 @@
+
+Options: -M 2 -V 0.001 -N 3 -S 1 -L 4 
+
+
+REPTree
+============
+
+unnormalizedSpectralEntropy < 770.59
+|   cepstralMostDominantPeak < 0.01
+|   |   corPeakCount < 10.5 : 0 (1574/93) [830/61]
+|   |   corPeakCount >= 10.5
+|   |   |   corMagPeak < 0.71 : 0 (1953/383) [956/180]
+|   |   |   corMagPeak >= 0.71 : 1 (157/65) [85/35]
+|   cepstralMostDominantPeak >= 0.01
+|   |   unnormalizedSpectralEntropy < 486.57 : 0 (1136/352) [546/176]
+|   |   unnormalizedSpectralEntropy >= 486.57
+|   |   |   corMagPeak < 0.06 : 0 (57/8) [34/5]
+|   |   |   corMagPeak >= 0.06 : 1 (698/180) [323/76]
+unnormalizedSpectralEntropy >= 770.59
+|   cepstralMostDominantPeak < 0.01
+|   |   corMagPeak < 0.75 : 0 (309/101) [152/62]
+|   |   corMagPeak >= 0.75 : 1 (264/66) [131/32]
+|   cepstralMostDominantPeak >= 0.01 : 1 (5141/190) [2588/120]
+
+Size of the tree : 17
+
+Time taken to build model: 0.48 seconds
+Time taken to test model on training data: 0.2 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances       14749               87.097  
+Incorrectly Classified Instances      2185               12.903  
+Kappa statistic                          0.7366
+Mean absolute error                      0.2006
+Root mean squared error                  0.3167
+Relative absolute error                 41.5665 
+Root relative squared error             64.4722 
+Total Number of Instances            16934     
+
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 6126  764 |    a = 0
+ 1421 8623 |    b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances       14669               86.6245 
+Incorrectly Classified Instances      2265               13.3755 
+Kappa statistic                          0.7271
+Mean absolute error                      0.2056
+Root mean squared error                  0.322 
+Relative absolute error                 42.5951 
+Root relative squared error             65.556  
+Total Number of Instances            16934     
+
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 6097  793 |    a = 0
+ 1472 8572 |    b = 1
+

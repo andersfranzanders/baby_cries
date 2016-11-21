@@ -12,7 +12,7 @@ lengthOfOriginalSignal = rows*cols/2;
 support = 1:(cols/2):lengthOfOriginalSignal;
 
 % produce feature Matrix
-featureMatrix = zeros(rows, 12);
+featureMatrix = zeros(rows, 11);
 
 %calculate Features
 Es = calculateEnergies(xInWindows);

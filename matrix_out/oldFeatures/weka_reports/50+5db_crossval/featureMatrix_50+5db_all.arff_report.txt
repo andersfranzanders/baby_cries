@@ -1,0 +1,65 @@
+
+Options: -M 2 -V 0.001 -N 3 -S 1 -L 4 
+
+
+REPTree
+============
+
+unnormalizedSpectralEntropy < 596.59
+|   corMagPeak < 1 : 0 (9642/1577) [4775/752]
+|   corMagPeak >= 1
+|   |   unnormalizedSpectralEntropy < -37.65
+|   |   |   normalizedSpectralEntropy < -5.02 : 0 (188/32) [96/18]
+|   |   |   normalizedSpectralEntropy >= -5.02 : 1 (22/0) [13/2]
+|   |   unnormalizedSpectralEntropy >= -37.65 : 1 (1424/127) [710/59]
+unnormalizedSpectralEntropy >= 596.59
+|   cepstralMostDominantPeak < 0.02
+|   |   corMagPeak < 0.88
+|   |   |   cepstralMostDominantPeak < 0.01 : 0 (422/98) [198/40]
+|   |   |   cepstralMostDominantPeak >= 0.01 : 1 (633/256) [268/118]
+|   |   corMagPeak >= 0.88 : 1 (726/66) [370/36]
+|   cepstralMostDominantPeak >= 0.02 : 1 (9520/191) [4859/119]
+
+Size of the tree : 15
+
+Time taken to build model: 0.67 seconds
+Time taken to test model on training data: 0.25 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances       30375               89.6917 
+Incorrectly Classified Instances      3491               10.3083 
+Kappa statistic                          0.7901
+Mean absolute error                      0.1705
+Root mean squared error                  0.292 
+Relative absolute error                 35.3314 
+Root relative squared error             59.4403 
+Total Number of Instances            33866     
+
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+ 12804   974 |     a = 0
+  2517 17571 |     b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances       30260               89.3522 
+Incorrectly Classified Instances      3606               10.6478 
+Kappa statistic                          0.7839
+Mean absolute error                      0.172 
+Root mean squared error                  0.2947
+Relative absolute error                 35.6452 
+Root relative squared error             59.9897 
+Total Number of Instances            33866     
+
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+ 12883   895 |     a = 0
+  2711 17377 |     b = 1
+

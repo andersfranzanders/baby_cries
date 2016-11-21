@@ -1,6 +1,7 @@
-pathToTrainingset = '../audiobase/truncated/real_noise/50+5db/';
+pathToTrainingset = '../audiobase/truncated/real_noise/5db/';
 training_set = getAllFileNamesInDirectory(pathToTrainingset);
-noiseLevel = '50+5db';
+noiseLevel = '5db';
+outPath = 'matrix_out/oldFeatures_tripleNegatives/training_arff/';
 
 featureMatrix = zeros(1,11);
 
@@ -18,15 +19,16 @@ for i = 1:length(training_set)
     featureMatrix = cat(1,featureMatrix,M);
 end
 
-featureMatrix = doubleNegativeClasses(featureMatrix);
+%featureMatrix = doubleNegativeClasses(featureMatrix);
+featureMatrix = tripleNegativeClasses(featureMatrix);
 
-dlmwrite(strcat('matrix_out/featureMatrix_',noiseLevel,'_all.arff'),featureMatrix);
-dlmwrite(strcat('matrix_out/featureMatrix_',noiseLevel,'_TD.arff'),featureMatrix(:,[1,2,11]));
-dlmwrite(strcat('matrix_out/featureMatrix_',noiseLevel,'_FD.arff'),featureMatrix(:,[3,4,5,11]));
-dlmwrite(strcat('matrix_out/featureMatrix_',noiseLevel,'_CeD.arff'),featureMatrix(:,[6,7,8,11]));
-dlmwrite(strcat('matrix_out/featureMatrix_',noiseLevel,'_CoD.arff'),featureMatrix(:,[9,10,11]));
-dlmwrite(strcat('matrix_out/featureMatrix_',noiseLevel,'_TD+FD.arff'),featureMatrix(:,[1,2,3,4,5,11]));
-dlmwrite(strcat('matrix_out/featureMatrix_',noiseLevel,'_TD+CeD.arff'),featureMatrix(:,[1,2,6,7,8,11]));
-dlmwrite(strcat('matrix_out/featureMatrix_',noiseLevel,'_TD+CoD.arff'),featureMatrix(:,[1,2,9,10,11]));
-dlmwrite(strcat('matrix_out/featureMatrix_',noiseLevel,'_FD+CeD.arff'),featureMatrix(:,[3,4,5,6,7,8,11]));
-dlmwrite(strcat('matrix_out/featureMatrix_',noiseLevel,'_FD+CoD.arff'),featureMatrix(:,[3,4,5,9,10,11]));
+dlmwrite(strcat(outPath,'featureMatrix_',noiseLevel,'_all.arff'),featureMatrix);
+dlmwrite(strcat(outPath,'featureMatrix_',noiseLevel,'_TD.arff'),featureMatrix(:,[1,2,11]));
+dlmwrite(strcat(outPath,'featureMatrix_',noiseLevel,'_FD.arff'),featureMatrix(:,[3,4,5,11]));
+dlmwrite(strcat(outPath,'featureMatrix_',noiseLevel,'_CeD.arff'),featureMatrix(:,[6,7,8,11]));
+dlmwrite(strcat(outPath,'/featureMatrix_',noiseLevel,'_CoD.arff'),featureMatrix(:,[9,10,11]));
+dlmwrite(strcat(outPath,'featureMatrix_',noiseLevel,'_TD+FD.arff'),featureMatrix(:,[1,2,3,4,5,11]));
+dlmwrite(strcat(outPath,'featureMatrix_',noiseLevel,'_TD+CeD.arff'),featureMatrix(:,[1,2,6,7,8,11]));
+dlmwrite(strcat(outPath,'featureMatrix_',noiseLevel,'_TD+CoD.arff'),featureMatrix(:,[1,2,9,10,11]));
+dlmwrite(strcat(outPath,'featureMatrix_',noiseLevel,'_FD+CeD.arff'),featureMatrix(:,[3,4,5,6,7,8,11]));
+dlmwrite(strcat(outPath,'featureMatrix_',noiseLevel,'_FD+CoD.arff'),featureMatrix(:,[3,4,5,9,10,11]));
