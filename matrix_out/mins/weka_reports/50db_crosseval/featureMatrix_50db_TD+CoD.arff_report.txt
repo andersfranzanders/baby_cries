@@ -1,0 +1,65 @@
+
+Options: -M 2 -V 0.001 -N 3 -S 1 -L 4 
+
+
+REPTree
+============
+
+energy < 0.03
+|   energy < 0.01 : 0 (5799/126) [2859/48]
+|   energy >= 0.01
+|   |   corMagPeak < 1.48 : 0 (1173/239) [570/103]
+|   |   corMagPeak >= 1.48
+|   |   |   zeroCrossingRate < 0.06 : 1 (87/0) [36/0]
+|   |   |   zeroCrossingRate >= 0.06 : 0 (6/0) [3/0]
+energy >= 0.03
+|   energy < 0.08
+|   |   corMagPeak < 1.19
+|   |   |   zeroCrossingRate < 0.05 : 0 (333/133) [172/63]
+|   |   |   zeroCrossingRate >= 0.05 : 1 (361/58) [183/38]
+|   |   corMagPeak >= 1.19 : 1 (557/19) [270/17]
+|   energy >= 0.08 : 1 (5270/0) [2700/0]
+
+Size of the tree : 15
+
+Time taken to build model: 0.38 seconds
+Time taken to test model on training data: 0.17 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances       19535               95.8585 
+Incorrectly Classified Instances       844                4.1415 
+Kappa statistic                          0.9171
+Mean absolute error                      0.0666
+Root mean squared error                  0.1825
+Relative absolute error                 13.3266 
+Root relative squared error             36.5056 
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+ 10203   132 |     a = 0
+   712  9332 |     b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances       19542               95.8928 
+Incorrectly Classified Instances       837                4.1072 
+Kappa statistic                          0.9178
+Mean absolute error                      0.0678
+Root mean squared error                  0.186 
+Relative absolute error                 13.5712 
+Root relative squared error             37.2017 
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+ 10145   190 |     a = 0
+   647  9397 |     b = 1
+

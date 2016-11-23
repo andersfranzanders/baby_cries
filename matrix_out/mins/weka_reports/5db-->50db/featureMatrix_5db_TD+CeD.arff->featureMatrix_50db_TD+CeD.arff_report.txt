@@ -1,0 +1,66 @@
+
+Options: -M 2 -V 0.001 -N 3 -S 1 -L 4 
+
+
+REPTree
+============
+
+cepstralMostDominantPeak < 0.02
+|   energy_min < 0.08 : 0 (7015/1132) [3482/548]
+|   energy_min >= 0.08
+|   |   zeroCrossingRate_min < 0.01
+|   |   |   cepstralMostDominantPeak < 0 : 0 (147/18) [76/4]
+|   |   |   cepstralMostDominantPeak >= 0 : 1 (290/109) [142/50]
+|   |   zeroCrossingRate_min >= 0.01 : 1 (544/53) [280/19]
+cepstralMostDominantPeak >= 0.02
+|   energy < 0.11
+|   |   energy < 0.09
+|   |   |   zeroCrossingRate < 0.12 : 0 (622/193) [308/95]
+|   |   |   zeroCrossingRate >= 0.12 : 1 (44/10) [23/2]
+|   |   energy >= 0.09
+|   |   |   zeroCrossingRate < 0.02 : 0 (47/6) [25/6]
+|   |   |   zeroCrossingRate >= 0.02 : 1 (562/120) [275/66]
+|   energy >= 0.11 : 1 (4315/116) [2182/70]
+
+Size of the tree : 17
+
+Time taken to build model: 0.59 seconds
+Time taken to test model on training data: 0.16 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances       17762               87.1583 
+Incorrectly Classified Instances      2617               12.8417 
+Kappa statistic                          0.7426
+Mean absolute error                      0.2101
+Root mean squared error                  0.3241
+Relative absolute error                 42.0351 
+Root relative squared error             64.8345 
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 9720  615 |    a = 0
+ 2002 8042 |    b = 1
+
+
+=== Error on test data ===
+
+Correctly Classified Instances       17437               85.5636 
+Incorrectly Classified Instances      2942               14.4364 
+Kappa statistic                          0.7106
+Mean absolute error                      0.222 
+Root mean squared error                  0.3292
+Relative absolute error                 44.4173 
+Root relative squared error             65.8409 
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 9576  759 |    a = 0
+ 2183 7861 |    b = 1
+

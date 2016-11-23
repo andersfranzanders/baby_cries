@@ -1,5 +1,5 @@
 pathToTrainingset = '../audiobase/truncated/real_noise/5db/';
-trainingSignal = 'cry_clean06_hospital_5db'
+trainingSignal = 'cry_clean01_hospital_5db'
 
 featureMatrix = zeros(1,4);
 
@@ -16,21 +16,18 @@ plot(t,x);
 [support,M] = windowAndExtractFeatures( x,classSignal,25,Fs );
 
 
-
-
-
-MwithDeltas = addSubtractedDeltas(M);
+MwithMins = addMinsToM(M,1,25);
 
 hold on;
 subplot(4,1,1);    
-plot(support/Fs,MwithDeltas(:,end));
+plot(support/Fs,MwithMins(:,end));
 
 hold on;
 subplot(4,1,2);    
-plot(support/Fs,M(:,3));
+plot(support/Fs,MwithMins(:,6));
 
 hold on;
 subplot(4,1,2);    
-plot(support/Fs,2*MwithDeltas(:,13));
+plot(support/Fs,MwithMins(:,16));
 
 

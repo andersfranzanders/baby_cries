@@ -1,0 +1,64 @@
+
+Options: -M 2 -V 0.001 -N 3 -S 1 -L 4 
+
+
+REPTree
+============
+
+unnormalizedSpectralEntropy_min < 623.37
+|   corMagPeak < 1 : 0 (14291/1800) [7175/922]
+|   corMagPeak >= 1
+|   |   normalizedSpectralEntropy < 5.03 : 1 (988/56) [509/31]
+|   |   normalizedSpectralEntropy >= 5.03
+|   |   |   unnormalizedSpectralEntropy < 103.43 : 0 (383/107) [187/67]
+|   |   |   unnormalizedSpectralEntropy >= 103.43 : 1 (516/86) [273/67]
+unnormalizedSpectralEntropy_min >= 623.37
+|   corMagPeak_min < 0.59
+|   |   normalizedSpectralEntropy < 4.76
+|   |   |   unnormalizedSpectralEntropy_min < 2100.7 : 0 (457/92) [224/49]
+|   |   |   unnormalizedSpectralEntropy_min >= 2100.7 : 1 (48/10) [21/5]
+|   |   normalizedSpectralEntropy >= 4.76 : 1 (2519/357) [1231/174]
+|   corMagPeak_min >= 0.59 : 1 (7968/137) [3965/64]
+
+Size of the tree : 15
+
+Time taken to build model: 0.79 seconds
+Time taken to test model on training data: 0.26 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances       36731               90.1264 
+Incorrectly Classified Instances      4024                9.8736 
+Kappa statistic                          0.8022
+Mean absolute error                      0.1708
+Root mean squared error                  0.2922
+Relative absolute error                 34.1619 
+Root relative squared error             58.4482 
+Total Number of Instances            40755     
+
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+ 19680   987 |     a = 0
+  3037 17051 |     b = 1
+
+
+=== Error on test data ===
+
+Correctly Classified Instances       17552               86.1279 
+Incorrectly Classified Instances      2827               13.8721 
+Kappa statistic                          0.7221
+Mean absolute error                      0.2043
+Root mean squared error                  0.3412
+Relative absolute error                 40.8684 
+Root relative squared error             68.2399 
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 9450  885 |    a = 0
+ 1942 8102 |    b = 1
+

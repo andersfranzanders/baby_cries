@@ -1,0 +1,65 @@
+
+Options: -M 2 -V 0.001 -N 3 -S 1 -L 4 
+
+
+REPTree
+============
+
+unnormalizedSpectralEntropy < 252.37
+|   normalizedSpectralEntropy < 5.42
+|   |   mostDominantFrequency < 161.5 : 0 (261/6) [140/2]
+|   |   mostDominantFrequency >= 161.5
+|   |   |   normalizedSpectralEntropy < 4.98 : 1 (465/55) [211/29]
+|   |   |   normalizedSpectralEntropy >= 4.98 : 0 (731/344) [346/145]
+|   normalizedSpectralEntropy >= 5.42 : 0 (6503/345) [3216/158]
+unnormalizedSpectralEntropy >= 252.37
+|   unnormalizedSpectralEntropy < 460.07
+|   |   mostDominantFrequency < 312.23 : 0 (18/0) [9/0]
+|   |   mostDominantFrequency >= 312.23
+|   |   |   normalizedSpectralEntropy < 6.05 : 1 (483/7) [268/2]
+|   |   |   normalizedSpectralEntropy >= 6.05 : 0 (10/0) [8/0]
+|   unnormalizedSpectralEntropy >= 460.07 : 1 (5115/0) [2595/0]
+
+Size of the tree : 15
+
+Time taken to build model: 0.74 seconds
+Time taken to test model on training data: 0.23 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances       19286               94.6366 
+Incorrectly Classified Instances      1093                5.3634 
+Kappa statistic                          0.8926
+Mean absolute error                      0.0819
+Root mean squared error                  0.2023
+Relative absolute error                 16.3778 
+Root relative squared error             40.4695 
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+ 10242    93 |     a = 0
+  1000  9044 |     b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances       19290               94.6563 
+Incorrectly Classified Instances      1089                5.3437 
+Kappa statistic                          0.893 
+Mean absolute error                      0.0808
+Root mean squared error                  0.2017
+Relative absolute error                 16.1687 
+Root relative squared error             40.3417 
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+ 10237    98 |     a = 0
+   991  9053 |     b = 1
+

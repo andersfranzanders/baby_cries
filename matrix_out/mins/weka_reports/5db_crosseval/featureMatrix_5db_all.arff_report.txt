@@ -1,0 +1,65 @@
+
+Options: -M 2 -V 0.001 -N 3 -S 1 -L 4 
+
+
+REPTree
+============
+
+unnormalizedSpectralEntropy_min < 723.7
+|   cepstralMostDominantPeak < 0.01 : 0 (5374/589) [2656/286]
+|   cepstralMostDominantPeak >= 0.01
+|   |   unnormalizedSpectralEntropy < 481.5 : 0 (1491/358) [743/163]
+|   |   unnormalizedSpectralEntropy >= 481.5
+|   |   |   corMagPeak_min < 0.25 : 0 (348/127) [189/59]
+|   |   |   corMagPeak_min >= 0.25 : 1 (627/139) [319/59]
+unnormalizedSpectralEntropy_min >= 723.7
+|   cepstralNumPeaks < 1.5
+|   |   corMagPeak_min < 0.67
+|   |   |   cepstralMostDominantPeak_min < 0 : 0 (170/22) [64/5]
+|   |   |   cepstralMostDominantPeak_min >= 0 : 1 (613/257) [316/124]
+|   |   corMagPeak_min >= 0.67 : 1 (630/77) [320/49]
+|   cepstralNumPeaks >= 1.5 : 1 (4333/130) [2186/74]
+
+Size of the tree : 15
+
+Time taken to build model: 1.07 seconds
+Time taken to test model on training data: 0.22 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances       17861               87.6441 
+Incorrectly Classified Instances      2518               12.3559 
+Kappa statistic                          0.7526
+Mean absolute error                      0.1975
+Root mean squared error                  0.3143
+Relative absolute error                 39.5157 
+Root relative squared error             62.8615 
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 9426  909 |    a = 0
+ 1609 8435 |    b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances       17878               87.7276 
+Incorrectly Classified Instances      2501               12.2724 
+Kappa statistic                          0.7542
+Mean absolute error                      0.1923
+Root mean squared error                  0.3123
+Relative absolute error                 38.4587 
+Root relative squared error             62.4566 
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 9571  764 |    a = 0
+ 1737 8307 |    b = 1
+

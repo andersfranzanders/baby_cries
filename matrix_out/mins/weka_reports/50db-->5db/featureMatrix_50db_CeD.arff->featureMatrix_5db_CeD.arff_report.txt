@@ -1,0 +1,74 @@
+
+Options: -M 2 -V 0.001 -N 3 -S 1 -L 4 
+
+
+REPTree
+============
+
+cepstralMostDominantPeak < 0.03
+|   cepstralMostDominantPeak < 0.01
+|   |   cepstralMostDominantPeak < 0 : 0 (3860/205) [1850/87]
+|   |   cepstralMostDominantPeak >= 0
+|   |   |   cepstralMostDominantPeak_min < 0 : 1 (15/5) [9/4]
+|   |   |   cepstralMostDominantPeak_min >= 0 : 0 (1700/348) [881/160]
+|   cepstralMostDominantPeak >= 0.01
+|   |   cepstralLocFirstPeak < 13.5
+|   |   |   cepstralLocFirstPeak < 4.5 : 0 (594/212) [297/112]
+|   |   |   cepstralLocFirstPeak >= 4.5 : 1 (1219/373) [609/200]
+|   |   cepstralLocFirstPeak >= 13.5
+|   |   |   cepstralNumPeaks < 1.5 : 0 (1079/284) [566/155]
+|   |   |   cepstralNumPeaks >= 1.5 : 1 (171/52) [97/26]
+cepstralMostDominantPeak >= 0.03
+|   cepstralMostDominantPeak < 0.04
+|   |   cepstralLocFirstPeak < 15.5 : 1 (1071/140) [534/82]
+|   |   cepstralLocFirstPeak >= 15.5
+|   |   |   cepstralMostDominantPeak < 0.04 : 0 (104/24) [39/11]
+|   |   |   cepstralMostDominantPeak >= 0.04 : 1 (11/0) [4/0]
+|   cepstralMostDominantPeak >= 0.04
+|   |   cepstralMostDominantPeak_min < 0.08
+|   |   |   cepstralLocFirstPeak < 22.5 : 1 (2189/50) [1126/19]
+|   |   |   cepstralLocFirstPeak >= 22.5 : 0 (7/1) [5/2]
+|   |   cepstralMostDominantPeak_min >= 0.08 : 1 (1566/0) [776/3]
+
+Size of the tree : 25
+
+Time taken to build model: 0.35 seconds
+Time taken to test model on training data: 0.16 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances       17824               87.4626 
+Incorrectly Classified Instances      2555               12.5374 
+Kappa statistic                          0.749 
+Mean absolute error                      0.1922
+Root mean squared error                  0.31  
+Relative absolute error                 38.4387 
+Root relative squared error             61.999  
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 9381  954 |    a = 0
+ 1601 8443 |    b = 1
+
+
+=== Error on test data ===
+
+Correctly Classified Instances       16296               79.9647 
+Incorrectly Classified Instances      4083               20.0353 
+Kappa statistic                          0.599 
+Mean absolute error                      0.2601
+Root mean squared error                  0.3772
+Relative absolute error                 52.0252 
+Root relative squared error             75.4405 
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 8514 1821 |    a = 0
+ 2262 7782 |    b = 1
+

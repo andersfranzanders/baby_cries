@@ -1,0 +1,72 @@
+
+Options: -M 2 -V 0.001 -N 3 -S 1 -L 4 
+
+
+REPTree
+============
+
+energy_min < 0.07
+|   corPeakCount < 12.5
+|   |   corMagPeak_min < 0.66 : 0 (3142/211) [1567/100]
+|   |   corMagPeak_min >= 0.66
+|   |   |   corPeakCount_min < 2.5 : 0 (161/8) [70/4]
+|   |   |   corPeakCount_min >= 2.5 : 1 (124/47) [53/22]
+|   corPeakCount >= 12.5
+|   |   energy < 0.09
+|   |   |   corMagPeak < 0.87 : 0 (3075/578) [1502/279]
+|   |   |   corMagPeak >= 0.87 : 1 (78/18) [28/9]
+|   |   energy >= 0.09
+|   |   |   corMagPeak_min < 0.21 : 0 (649/197) [346/87]
+|   |   |   corMagPeak_min >= 0.21 : 1 (1073/200) [565/103]
+energy_min >= 0.07
+|   zeroCrossingRate_min < 0.02
+|   |   energy_min < 0.09 : 0 (235/50) [114/26]
+|   |   energy_min >= 0.09 : 1 (601/211) [329/113]
+|   zeroCrossingRate_min >= 0.02
+|   |   corMagPeak_min < 0.34
+|   |   |   energy < 0.12 : 0 (109/43) [46/16]
+|   |   |   energy >= 0.12 : 1 (470/70) [263/47]
+|   |   corMagPeak_min >= 0.34 : 1 (3869/60) [1910/18]
+
+Size of the tree : 23
+
+Time taken to build model: 0.48 seconds
+Time taken to test model on training data: 0.14 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances       17862               87.6491 
+Incorrectly Classified Instances      2517               12.3509 
+Kappa statistic                          0.7527
+Mean absolute error                      0.1956
+Root mean squared error                  0.3127
+Relative absolute error                 39.1242 
+Root relative squared error             62.5493 
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 9417  918 |    a = 0
+ 1599 8445 |    b = 1
+
+
+=== Error on test data ===
+
+Correctly Classified Instances       18612               91.3293 
+Incorrectly Classified Instances      1767                8.6707 
+Kappa statistic                          0.8265
+Mean absolute error                      0.1988
+Root mean squared error                  0.2867
+Relative absolute error                 39.7777 
+Root relative squared error             57.3468 
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 9549  786 |    a = 0
+  981 9063 |    b = 1
+
