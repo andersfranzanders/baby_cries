@@ -18,7 +18,6 @@ featureMatrix = zeros(rows, 11);
 Es = calculateEnergies(xInWindows);
 ents = calUnnormalizedSpectralEntropie(specto);
 domfreqs = calMostDominantFrequency(specto,Fs);
-flatness = calSpectralFlatness(specto);
 ZCR = calculateZeroCrossingRate(xInWindows);
 normSpecEntropies = calNormalizedSpectralEntropie(specto);
  [ cepMostDomPeak, cepNumPeaks, cepLocFirstPeak]  = calCeptralPeaks(ceptogram,Fs,100,800);

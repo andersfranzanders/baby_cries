@@ -1,0 +1,65 @@
+
+Options: -M 2 -V 0.001 -N 3 -S 1 -L 4 
+
+
+REPTree
+============
+
+cepstralMostDominantPeak < 0.02
+|   unnormalizedSpectralEntropy < 819.71 : 0 (4807/712) [2415/339]
+|   unnormalizedSpectralEntropy >= 819.71
+|   |   corPeakCount_min < 4.5 : 0 (1036/216) [516/124]
+|   |   corPeakCount_min >= 4.5
+|   |   |   corMagPeak_min < 0.61 : 0 (1869/865) [926/427]
+|   |   |   corMagPeak_min >= 0.61 : 1 (475/50) [232/19]
+cepstralMostDominantPeak >= 0.02
+|   corMagPeak_min < 0.39
+|   |   energy < 0.12
+|   |   |   normalizedSpectralEntropy < 5.59 : 1 (265/116) [136/64]
+|   |   |   normalizedSpectralEntropy >= 5.59 : 0 (349/93) [191/54]
+|   |   energy >= 0.12 : 1 (1552/359) [805/181]
+|   corMagPeak_min >= 0.39 : 1 (3233/190) [1572/77]
+
+Size of the tree : 15
+
+Time taken to build model: 0.77 seconds
+Time taken to test model on training data: 0.26 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances       16493               80.9314 
+Incorrectly Classified Instances      3886               19.0686 
+Kappa statistic                          0.6176
+Mean absolute error                      0.2743
+Root mean squared error                  0.3704
+Relative absolute error                 54.8761 
+Root relative squared error             74.0784 
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 9279 1056 |    a = 0
+ 2830 7214 |    b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances       16448               80.7105 
+Incorrectly Classified Instances      3931               19.2895 
+Kappa statistic                          0.6137
+Mean absolute error                      0.2823
+Root mean squared error                  0.3778
+Relative absolute error                 56.4684 
+Root relative squared error             75.571  
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 8750 1585 |    a = 0
+ 2346 7698 |    b = 1
+

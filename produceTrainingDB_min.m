@@ -1,6 +1,6 @@
-pathToTrainingset = '../audiobase/truncated/real_noise/0db/';
+pathToTrainingset = '../audiobase/truncated/real_noise/50+0db/';
 training_set = getAllFileNamesInDirectory(pathToTrainingset);
-noiseLevel = '0db';
+noiseLevel = '50+0db';
 outPath = 'matrix_out/mins/training_arff/';
 
 featureMatrix = zeros(1,11+10);
