@@ -1,0 +1,67 @@
+
+Options: -M 2 -V 0.001 -N 3 -S 1 -L 4 
+
+
+REPTree
+============
+
+unnormalizedSpectralEntropy_min < 111.35
+|   energy < 0.01 : 0 (6013/154) [2964/63]
+|   energy >= 0.01
+|   |   normalizedSpectralEntropy < 4.72
+|   |   |   zeroCrossingRate < 0.05 : 1 (272/37) [133/26]
+|   |   |   zeroCrossingRate >= 0.05 : 0 (55/11) [20/1]
+|   |   normalizedSpectralEntropy >= 4.72 : 0 (1155/299) [600/142]
+unnormalizedSpectralEntropy_min >= 111.35
+|   energy < 0.08
+|   |   mostDominantFrequency < 721.37
+|   |   |   energy_min < 0.04 : 0 (22/4) [11/2]
+|   |   |   energy_min >= 0.04 : 1 (294/50) [142/22]
+|   |   mostDominantFrequency >= 721.37
+|   |   |   normalizedSpectralEntropy < 5.29 : 1 (477/8) [209/1]
+|   |   |   normalizedSpectralEntropy >= 5.29 : 0 (28/10) [14/5]
+|   energy >= 0.08 : 1 (5270/0) [2700/0]
+
+Size of the tree : 17
+
+Time taken to build model: 0.47 seconds
+Time taken to test model on training data: 0.19 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances       19544               95.9026 
+Incorrectly Classified Instances       835                4.0974 
+Kappa statistic                          0.918 
+Mean absolute error                      0.0676
+Root mean squared error                  0.1838
+Relative absolute error                 13.5218 
+Root relative squared error             36.772  
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+ 10191   144 |     a = 0
+   691  9353 |     b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances       19479               95.5837 
+Incorrectly Classified Instances       900                4.4163 
+Kappa statistic                          0.9116
+Mean absolute error                      0.0702
+Root mean squared error                  0.1886
+Relative absolute error                 14.04   
+Root relative squared error             37.7254 
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 9968  367 |    a = 0
+  533 9511 |    b = 1
+

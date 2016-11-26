@@ -12,7 +12,7 @@ lengthOfOriginalSignal = rows*cols/2;
 support = 1:(cols/2):lengthOfOriginalSignal;
 
 % produce feature Matrix
-featureMatrix = zeros(rows, 11);
+featureMatrix = zeros(rows, 10);
 
 %calculate Features
 Es = calculateEnergies(xInWindows);
@@ -20,7 +20,6 @@ ZCR = calculateZeroCrossingRate(xInWindows);
 ents = calUnnormalizedSpectralEntropyWithBounds(specto, 200, 8000, Fs);
 normSpecEntropies = calNormalizedSpectralEntropyWithBounds(specto,200,8000,Fs);
 domfreqs = calMostDominantFrequency(specto,Fs);
-flatness = calSpectralFlatness(specto);
 [ cepMostDomPeak, cepLocFirstPeak]  = calCeptralPeaks_new(ceptogram,Fs,200,800);
 [corMagPeak, corPeakCount] =  maximumAutocorrelationPeak( xInWindows, 200,800, Fs );
 
@@ -29,11 +28,10 @@ featureMatrix(:,2) = ZCR(:);
 featureMatrix(:,3) = ents(:);
 featureMatrix(:,4) = normSpecEntropies(:);
 featureMatrix(:,5) = domfreqs(:);
-featureMatrix(:,6) = flatness;
- featureMatrix(:,7) = cepMostDomPeak;
- featureMatrix(:,8) = cepLocFirstPeak;
- featureMatrix(:,9) = corMagPeak(:);
- featureMatrix(:,10) = corPeakCount(:);
+featureMatrix(:,6) = cepMostDomPeak;
+featureMatrix(:,7) = cepLocFirstPeak;
+featureMatrix(:,8) = corMagPeak(:);
+featureMatrix(:,9) = corPeakCount(:);
 
 %featureMatrix(:,11:end-1) = calMFCCgram( specto, 30, 13, 50, 10000, Fs );
 

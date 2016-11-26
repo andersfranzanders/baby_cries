@@ -1,0 +1,64 @@
+
+Options: -M 2 -V 0.001 -N 3 -S 1 -L 4 
+
+
+REPTree
+============
+
+cepstralMostDominantPeak_min < 0.02
+|   cepstralMostDominantPeak_min < 0.01 : 0 (11969/697) [5982/370]
+|   cepstralMostDominantPeak_min >= 0.01
+|   |   energy < 0.13 : 0 (2671/811) [1353/393]
+|   |   energy >= 0.13
+|   |   |   cepstralLocPeak_min < -91.5 : 0 (219/88) [118/51]
+|   |   |   cepstralLocPeak_min >= -91.5 : 1 (368/93) [168/42]
+cepstralMostDominantPeak_min >= 0.02
+|   cepstralMostDominantPeak < 0.05
+|   |   energy < 0.08
+|   |   |   zeroCrossingRate_min < -0.14 : 1 (426/105) [206/48]
+|   |   |   zeroCrossingRate_min >= -0.14 : 0 (229/66) [107/33]
+|   |   energy >= 0.08 : 1 (1556/137) [777/76]
+|   cepstralMostDominantPeak >= 0.05 : 1 (9732/17) [4874/10]
+
+Size of the tree : 15
+
+Time taken to build model: 1.36 seconds
+Time taken to test model on training data: 0.42 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances       37718               92.5482 
+Incorrectly Classified Instances      3037                7.4518 
+Kappa statistic                          0.8507
+Mean absolute error                      0.1196
+Root mean squared error                  0.2445
+Relative absolute error                 23.9164 
+Root relative squared error             48.9044 
+Total Number of Instances            40755     
+
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+ 20139   528 |     a = 0
+  2509 17579 |     b = 1
+
+
+=== Error on test data ===
+
+Correctly Classified Instances       19450               95.4414 
+Incorrectly Classified Instances       929                4.5586 
+Kappa statistic                          0.9087
+Mean absolute error                      0.0893
+Root mean squared error                  0.1946
+Relative absolute error                 17.8628 
+Root relative squared error             38.9296 
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+ 10173   162 |     a = 0
+   767  9277 |     b = 1
+

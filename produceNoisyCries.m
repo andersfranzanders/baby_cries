@@ -1,10 +1,10 @@
 pathToCrySet = '../audiobase/truncated/clean/';
 pathToNoise = '../audiobase/truncated/noise/';
-outPath = '../audiobase/truncated/real_noise/3db/';
+outPath = '../audiobase/truncated/real_noise/50+3db/';
 
 
 crySignals = {'cry_clean01','cry_clean02','cry_clean03','cry_clean04','cry_clean05','cry_clean06'};
-SNRsinDB = [3];
+SNRsinDB = [50,3];
 noiseSignals = {'corridor','hospital','barcelona'};
 
 %Plot Input Signal

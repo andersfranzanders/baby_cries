@@ -1,0 +1,67 @@
+
+Options: -M 2 -V 0.001 -N 3 -S 1 -L 4 
+
+
+REPTree
+============
+
+cepstralMostDominantPeak_min < 0.02
+|   energy < 0.01 : 0 (5799/126) [2859/48]
+|   energy >= 0.01
+|   |   energy_min < 0.06 : 0 (1281/302) [648/127]
+|   |   energy_min >= 0.06 : 1 (70/0) [39/0]
+cepstralMostDominantPeak_min >= 0.02
+|   cepstralMostDominantPeak < 0.05
+|   |   energy < 0.08
+|   |   |   zeroCrossingRate_min < -0.13 : 1 (400/111) [183/42]
+|   |   |   zeroCrossingRate_min >= -0.13 : 0 (178/55) [87/21]
+|   |   energy >= 0.08 : 1 (491/0) [243/0]
+|   cepstralMostDominantPeak >= 0.05
+|   |   energy < 0.07
+|   |   |   energy_min < 0.07 : 1 (545/0) [255/0]
+|   |   |   energy_min >= 0.07 : 0 (4/0) [5/0]
+|   |   energy >= 0.07 : 1 (4818/0) [2474/0]
+
+Size of the tree : 17
+
+Time taken to build model: 0.41 seconds
+Time taken to test model on training data: 0.15 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances       19547               95.9174 
+Incorrectly Classified Instances       832                4.0826 
+Kappa statistic                          0.9183
+Mean absolute error                      0.0659
+Root mean squared error                  0.1815
+Relative absolute error                 13.176  
+Root relative squared error             36.2987 
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+ 10182   153 |     a = 0
+   679  9365 |     b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances       19501               95.6916 
+Incorrectly Classified Instances       878                4.3084 
+Kappa statistic                          0.9137
+Mean absolute error                      0.0678
+Root mean squared error                  0.1852
+Relative absolute error                 13.5697 
+Root relative squared error             37.052  
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+ 10175   160 |     a = 0
+   718  9326 |     b = 1
+

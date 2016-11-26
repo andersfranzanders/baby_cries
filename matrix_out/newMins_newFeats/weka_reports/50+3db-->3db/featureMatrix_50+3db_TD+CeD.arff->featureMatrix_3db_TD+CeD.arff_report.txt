@@ -1,0 +1,64 @@
+
+Options: -M 2 -V 0.001 -N 3 -S 1 -L 4 
+
+
+REPTree
+============
+
+cepstralMostDominantPeak_min < 0.02
+|   cepstralMostDominantPeak_min < 0.01 : 0 (11969/697) [5982/370]
+|   cepstralMostDominantPeak_min >= 0.01
+|   |   energy < 0.13 : 0 (2671/811) [1353/393]
+|   |   energy >= 0.13
+|   |   |   cepstralLocPeak_min < -91.5 : 0 (219/88) [118/51]
+|   |   |   cepstralLocPeak_min >= -91.5 : 1 (368/93) [168/42]
+cepstralMostDominantPeak_min >= 0.02
+|   cepstralMostDominantPeak < 0.05
+|   |   energy < 0.08
+|   |   |   zeroCrossingRate_min < -0.14 : 1 (426/105) [206/48]
+|   |   |   zeroCrossingRate_min >= -0.14 : 0 (229/66) [107/33]
+|   |   energy >= 0.08 : 1 (1556/137) [777/76]
+|   cepstralMostDominantPeak >= 0.05 : 1 (9732/17) [4874/10]
+
+Size of the tree : 15
+
+Time taken to build model: 0.75 seconds
+Time taken to test model on training data: 0.28 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances       37718               92.5482 
+Incorrectly Classified Instances      3037                7.4518 
+Kappa statistic                          0.8507
+Mean absolute error                      0.1196
+Root mean squared error                  0.2445
+Relative absolute error                 23.9164 
+Root relative squared error             48.9044 
+Total Number of Instances            40755     
+
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+ 20139   528 |     a = 0
+  2509 17579 |     b = 1
+
+
+=== Error on test data ===
+
+Correctly Classified Instances       18271               89.656  
+Incorrectly Classified Instances      2108               10.344  
+Kappa statistic                          0.7927
+Mean absolute error                      0.1498
+Root mean squared error                  0.2858
+Relative absolute error                 29.9683 
+Root relative squared error             57.1616 
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 9969  366 |    a = 0
+ 1742 8302 |    b = 1
+

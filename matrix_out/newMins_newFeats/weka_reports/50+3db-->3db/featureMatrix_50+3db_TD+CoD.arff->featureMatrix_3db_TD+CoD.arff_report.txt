@@ -1,0 +1,66 @@
+
+Options: -M 2 -V 0.001 -N 3 -S 1 -L 4 
+
+
+REPTree
+============
+
+energy_min < 0.06
+|   energy_min < 0.01 : 0 (7040/250) [3589/140]
+|   energy_min >= 0.01
+|   |   corMagPeak_min < 0.14 : 0 (3925/412) [1931/218]
+|   |   corMagPeak_min >= 0.14
+|   |   |   corMagPeak_min < 0.71 : 0 (3124/1182) [1494/577]
+|   |   |   corMagPeak_min >= 0.71 : 1 (1167/274) [578/143]
+energy_min >= 0.06
+|   corMagPeak_min < 0.19
+|   |   corMagPeak < 0.01
+|   |   |   zeroCrossingRate_min < -0.2 : 1 (14/0) [8/0]
+|   |   |   zeroCrossingRate_min >= -0.2 : 0 (380/26) [188/17]
+|   |   corMagPeak >= 0.01
+|   |   |   energy_min < 0.17 : 0 (338/149) [185/71]
+|   |   |   energy_min >= 0.17 : 1 (59/11) [35/4]
+|   corMagPeak_min >= 0.19 : 1 (11123/705) [5577/378]
+
+Size of the tree : 17
+
+Time taken to build model: 0.73 seconds
+Time taken to test model on training data: 0.23 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances       36198               88.8185 
+Incorrectly Classified Instances      4557               11.1815 
+Kappa statistic                          0.7761
+Mean absolute error                      0.1736
+Root mean squared error                  0.2946
+Relative absolute error                 34.7201 
+Root relative squared error             58.9238 
+Total Number of Instances            40755     
+
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+ 19152  1515 |     a = 0
+  3042 17046 |     b = 1
+
+
+=== Error on test data ===
+
+Correctly Classified Instances       16682               81.8588 
+Incorrectly Classified Instances      3697               18.1412 
+Kappa statistic                          0.6364
+Mean absolute error                      0.238 
+Root mean squared error                  0.3668
+Relative absolute error                 47.6005 
+Root relative squared error             73.3751 
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 9138 1197 |    a = 0
+ 2500 7544 |    b = 1
+

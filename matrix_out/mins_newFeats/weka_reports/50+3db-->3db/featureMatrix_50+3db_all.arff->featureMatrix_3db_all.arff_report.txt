@@ -1,0 +1,64 @@
+
+Options: -M 2 -V 0.001 -N 3 -S 1 -L 4 
+
+
+REPTree
+============
+
+cepstralMostDominantPeak_min < 0.02
+|   cepstralMostDominantPeak_min < 0.01 : 0 (11969/697) [5982/370]
+|   cepstralMostDominantPeak_min >= 0.01
+|   |   normalizedSpectralEntropy_min < 1.12
+|   |   |   energy < 0.13 : 0 (1623/614) [798/301]
+|   |   |   energy >= 0.13 : 1 (541/183) [258/87]
+|   |   normalizedSpectralEntropy_min >= 1.12 : 0 (1094/202) [583/98]
+cepstralMostDominantPeak_min >= 0.02
+|   cepstralMostDominantPeak < 0.05
+|   |   energy < 0.08
+|   |   |   normalizedSpectralEntropy < 4.83 : 1 (254/37) [121/17]
+|   |   |   normalizedSpectralEntropy >= 4.83 : 0 (401/170) [192/87]
+|   |   energy >= 0.08 : 1 (1556/137) [777/76]
+|   cepstralMostDominantPeak >= 0.05 : 1 (9732/17) [4874/10]
+
+Size of the tree : 15
+
+Time taken to build model: 1.21 seconds
+Time taken to test model on training data: 0.43 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances       37652               92.3862 
+Incorrectly Classified Instances      3103                7.6138 
+Kappa statistic                          0.8475
+Mean absolute error                      0.1183
+Root mean squared error                  0.2432
+Relative absolute error                 23.6603 
+Root relative squared error             48.6418 
+Total Number of Instances            40755     
+
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+ 20103   564 |     a = 0
+  2539 17549 |     b = 1
+
+
+=== Error on test data ===
+
+Correctly Classified Instances       18255               89.5775 
+Incorrectly Classified Instances      2124               10.4225 
+Kappa statistic                          0.7912
+Mean absolute error                      0.1499
+Root mean squared error                  0.2843
+Relative absolute error                 29.986  
+Root relative squared error             56.8691 
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 9834  501 |    a = 0
+ 1623 8421 |    b = 1
+

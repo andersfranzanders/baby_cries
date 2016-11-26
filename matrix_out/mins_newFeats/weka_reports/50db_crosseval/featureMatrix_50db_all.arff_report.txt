@@ -1,0 +1,57 @@
+
+Options: -M 2 -V 0.001 -N 3 -S 1 -L 4 
+
+
+REPTree
+============
+
+unnormalizedSpectralEntropy_min < 111.35
+|   energy < 0.01 : 0 (6013/154) [2964/63]
+|   energy >= 0.01
+|   |   corMagPeak < 0.75 : 0 (969/172) [498/71]
+|   |   corMagPeak >= 0.75 : 1 (513/140) [255/76]
+unnormalizedSpectralEntropy_min >= 111.35 : 1 (6091/94) [3076/41]
+
+Size of the tree : 7
+
+Time taken to build model: 1.04 seconds
+Time taken to test model on training data: 0.26 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances       19568               96.0204 
+Incorrectly Classified Instances       811                3.9796 
+Kappa statistic                          0.9204
+Mean absolute error                      0.069 
+Root mean squared error                  0.1857
+Relative absolute error                 13.7967 
+Root relative squared error             37.1439 
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 9984  351 |    a = 0
+  460 9584 |    b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances       19522               95.7947 
+Incorrectly Classified Instances       857                4.2053 
+Kappa statistic                          0.9158
+Mean absolute error                      0.0712
+Root mean squared error                  0.1898
+Relative absolute error                 14.2471 
+Root relative squared error             37.9733 
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+ 10060   275 |     a = 0
+   582  9462 |     b = 1
+

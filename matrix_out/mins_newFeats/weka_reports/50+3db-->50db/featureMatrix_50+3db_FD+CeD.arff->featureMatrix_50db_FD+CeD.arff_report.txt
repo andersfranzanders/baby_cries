@@ -1,0 +1,64 @@
+
+Options: -M 2 -V 0.001 -N 3 -S 1 -L 4 
+
+
+REPTree
+============
+
+cepstralMostDominantPeak_min < 0.02
+|   cepstralMostDominantPeak_min < 0.01 : 0 (11969/697) [5982/370]
+|   cepstralMostDominantPeak_min >= 0.01
+|   |   normalizedSpectralEntropy_min < 1.12
+|   |   |   cepstralLocPeak < 54.5 : 0 (784/236) [411/131]
+|   |   |   cepstralLocPeak >= 54.5 : 1 (1380/644) [645/304]
+|   |   normalizedSpectralEntropy_min >= 1.12 : 0 (1094/202) [583/98]
+cepstralMostDominantPeak_min >= 0.02
+|   cepstralMostDominantPeak < 0.05
+|   |   unnormalizedSpectralEntropy_min < 216.1
+|   |   |   normalizedSpectralEntropy < 4.83 : 1 (212/25) [110/14]
+|   |   |   normalizedSpectralEntropy >= 4.83 : 0 (379/156) [185/81]
+|   |   unnormalizedSpectralEntropy_min >= 216.1 : 1 (1620/157) [795/80]
+|   cepstralMostDominantPeak >= 0.05 : 1 (9732/17) [4874/10]
+
+Size of the tree : 15
+
+Time taken to build model: 0.86 seconds
+Time taken to test model on training data: 0.29 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances       37533               92.0942 
+Incorrectly Classified Instances      3222                7.9058 
+Kappa statistic                          0.8418
+Mean absolute error                      0.1188
+Root mean squared error                  0.2437
+Relative absolute error                 23.7641 
+Root relative squared error             48.7484 
+Total Number of Instances            40755     
+
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+ 19416  1251 |     a = 0
+  1971 18117 |     b = 1
+
+
+=== Error on test data ===
+
+Correctly Classified Instances       19502               95.6966 
+Incorrectly Classified Instances       877                4.3034 
+Kappa statistic                          0.9138
+Mean absolute error                      0.0847
+Root mean squared error                  0.191 
+Relative absolute error                 16.9487 
+Root relative squared error             38.2059 
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+ 10212   123 |     a = 0
+   754  9290 |     b = 1
+

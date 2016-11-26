@@ -1,0 +1,59 @@
+
+Options: -M 2 -V 0.001 -N 3 -S 1 -L 4 
+
+
+REPTree
+============
+
+cepstralMostDominantPeak_min < 0.02
+|   cepstralMostDominantPeak_min < 0.01 : 0 (5592/462) [2821/235]
+|   cepstralMostDominantPeak_min >= 0.01
+|   |   energy < 0.13 : 0 (1948/589) [898/271]
+|   |   energy >= 0.13
+|   |   |   cepstralLocPeak < 49 : 0 (171/70) [99/29]
+|   |   |   cepstralLocPeak >= 49 : 1 (368/110) [211/64]
+cepstralMostDominantPeak_min >= 0.02 : 1 (5507/190) [2764/98]
+
+Size of the tree : 9
+
+Time taken to build model: 0.45 seconds
+Time taken to test model on training data: 0.14 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances       18261               89.6069 
+Incorrectly Classified Instances      2118               10.3931 
+Kappa statistic                          0.7917
+Mean absolute error                      0.167 
+Root mean squared error                  0.289 
+Relative absolute error                 33.4091 
+Root relative squared error             57.8006 
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 9873  462 |    a = 0
+ 1656 8388 |    b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances       18247               89.5383 
+Incorrectly Classified Instances      2132               10.4617 
+Kappa statistic                          0.7904
+Mean absolute error                      0.1652
+Root mean squared error                  0.2884
+Relative absolute error                 33.0419 
+Root relative squared error             57.6827 
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 9758  577 |    a = 0
+ 1555 8489 |    b = 1
+

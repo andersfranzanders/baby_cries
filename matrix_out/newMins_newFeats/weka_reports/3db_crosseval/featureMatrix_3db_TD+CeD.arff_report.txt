@@ -1,0 +1,65 @@
+
+Options: -M 2 -V 0.001 -N 3 -S 1 -L 4 
+
+
+REPTree
+============
+
+cepstralMostDominantPeak_min < 0.02
+|   cepstralMostDominantPeak_min < 0.01 : 0 (5592/462) [2821/235]
+|   cepstralMostDominantPeak_min >= 0.01
+|   |   energy < 0.13 : 0 (1948/589) [898/271]
+|   |   energy >= 0.13
+|   |   |   cepstralLocPeak_min < -95.5 : 0 (191/79) [117/37]
+|   |   |   cepstralLocPeak_min >= -95.5 : 1 (348/99) [193/54]
+cepstralMostDominantPeak_min >= 0.02
+|   cepstralMostDominantPeak_min < 0.03
+|   |   cepstralLocPeak_min < -104.5
+|   |   |   zeroCrossingRate_min < -0.11 : 1 (37/2) [13/1]
+|   |   |   zeroCrossingRate_min >= -0.11 : 0 (126/48) [64/28]
+|   |   cepstralLocPeak_min >= -104.5 : 1 (449/78) [228/36]
+|   cepstralMostDominantPeak_min >= 0.03 : 1 (4895/32) [2459/25]
+
+Size of the tree : 15
+
+Time taken to build model: 0.77 seconds
+Time taken to test model on training data: 0.21 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances       18303               89.813  
+Incorrectly Classified Instances      2076               10.187  
+Kappa statistic                          0.7958
+Mean absolute error                      0.1591
+Root mean squared error                  0.2821
+Relative absolute error                 31.8276 
+Root relative squared error             56.4159 
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+ 10008   327 |     a = 0
+  1749  8295 |     b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances       18258               89.5922 
+Incorrectly Classified Instances      2121               10.4078 
+Kappa statistic                          0.7915
+Mean absolute error                      0.1627
+Root mean squared error                  0.2861
+Relative absolute error                 32.5375 
+Root relative squared error             57.2237 
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 9841  494 |    a = 0
+ 1627 8417 |    b = 1
+

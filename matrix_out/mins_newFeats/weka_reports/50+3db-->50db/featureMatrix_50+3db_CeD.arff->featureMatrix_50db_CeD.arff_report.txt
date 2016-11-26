@@ -1,0 +1,64 @@
+
+Options: -M 2 -V 0.001 -N 3 -S 1 -L 4 
+
+
+REPTree
+============
+
+cepstralMostDominantPeak_min < 0.02
+|   cepstralMostDominantPeak_min < 0.01 : 0 (11969/697) [5982/370]
+|   cepstralMostDominantPeak_min >= 0.01
+|   |   cepstralMostDominantPeak_min < 0.02 : 0 (1586/405) [834/191]
+|   |   cepstralMostDominantPeak_min >= 0.02
+|   |   |   cepstralLocPeak < 54.5 : 0 (634/192) [334/119]
+|   |   |   cepstralLocPeak >= 54.5 : 1 (1038/461) [471/211]
+cepstralMostDominantPeak_min >= 0.02
+|   cepstralMostDominantPeak < 0.05
+|   |   cepstralLocPeak < 32.5
+|   |   |   cepstralLocPeak < 28.5 : 1 (233/54) [110/21]
+|   |   |   cepstralLocPeak >= 28.5 : 0 (118/40) [64/22]
+|   |   cepstralLocPeak >= 32.5 : 1 (1860/273) [916/135]
+|   cepstralMostDominantPeak >= 0.05 : 1 (9732/17) [4874/10]
+
+Size of the tree : 15
+
+Time taken to build model: 0.62 seconds
+Time taken to test model on training data: 0.17 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances       37537               92.104  
+Incorrectly Classified Instances      3218                7.896  
+Kappa statistic                          0.842 
+Mean absolute error                      0.1232
+Root mean squared error                  0.2482
+Relative absolute error                 24.6506 
+Root relative squared error             49.6494 
+Total Number of Instances            40755     
+
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+ 19485  1182 |     a = 0
+  2036 18052 |     b = 1
+
+
+=== Error on test data ===
+
+Correctly Classified Instances       19367               95.0341 
+Incorrectly Classified Instances      1012                4.9659 
+Kappa statistic                          0.9006
+Mean absolute error                      0.0912
+Root mean squared error                  0.2006
+Relative absolute error                 18.2383 
+Root relative squared error             40.1148 
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 9888  447 |    a = 0
+  565 9479 |    b = 1
+

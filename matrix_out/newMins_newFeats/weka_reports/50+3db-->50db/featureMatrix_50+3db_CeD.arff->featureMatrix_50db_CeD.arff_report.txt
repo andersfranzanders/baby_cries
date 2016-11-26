@@ -1,0 +1,64 @@
+
+Options: -M 2 -V 0.001 -N 3 -S 1 -L 4 
+
+
+REPTree
+============
+
+cepstralMostDominantPeak_min < 0.02
+|   cepstralMostDominantPeak_min < 0.01 : 0 (11969/697) [5982/370]
+|   cepstralMostDominantPeak_min >= 0.01
+|   |   cepstralMostDominantPeak_min < 0.02 : 0 (1586/405) [834/191]
+|   |   cepstralMostDominantPeak_min >= 0.02
+|   |   |   cepstralLocPeak < 54.5 : 0 (634/192) [334/119]
+|   |   |   cepstralLocPeak >= 54.5 : 1 (1038/461) [471/211]
+cepstralMostDominantPeak_min >= 0.02
+|   cepstralMostDominantPeak < 0.05
+|   |   cepstralLocPeak < 32.5
+|   |   |   cepstralLocPeak_min < -50 : 1 (306/89) [150/40]
+|   |   |   cepstralLocPeak_min >= -50 : 0 (45/2) [24/1]
+|   |   cepstralLocPeak >= 32.5 : 1 (1860/273) [916/135]
+|   cepstralMostDominantPeak >= 0.05 : 1 (9732/17) [4874/10]
+
+Size of the tree : 15
+
+Time taken to build model: 0.6 seconds
+Time taken to test model on training data: 0.35 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances       37542               92.1163 
+Incorrectly Classified Instances      3213                7.8837 
+Kappa statistic                          0.8422
+Mean absolute error                      0.123 
+Root mean squared error                  0.248 
+Relative absolute error                 24.6103 
+Root relative squared error             49.6088 
+Total Number of Instances            40755     
+
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+ 19431  1236 |     a = 0
+  1977 18111 |     b = 1
+
+
+=== Error on test data ===
+
+Correctly Classified Instances       19347               94.936  
+Incorrectly Classified Instances      1032                5.064  
+Kappa statistic                          0.8987
+Mean absolute error                      0.0909
+Root mean squared error                  0.2009
+Relative absolute error                 18.189  
+Root relative squared error             40.178  
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 9852  483 |    a = 0
+  549 9495 |    b = 1
+

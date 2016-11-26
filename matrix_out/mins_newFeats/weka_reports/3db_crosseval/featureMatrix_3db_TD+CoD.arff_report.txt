@@ -1,0 +1,67 @@
+
+Options: -M 2 -V 0.001 -N 3 -S 1 -L 4 
+
+
+REPTree
+============
+
+corMagPeak_min < 0.22
+|   corMagPeak < 0.01 : 0 (3252/209) [1632/73]
+|   corMagPeak >= 0.01
+|   |   energy < 0.1 : 0 (1725/250) [830/115]
+|   |   energy >= 0.1
+|   |   |   zeroCrossingRate < 0.03 : 0 (586/199) [287/89]
+|   |   |   zeroCrossingRate >= 0.03 : 1 (426/143) [211/79]
+corMagPeak_min >= 0.22
+|   energy < 0.13
+|   |   energy < 0.08
+|   |   |   zeroCrossingRate_min < 0.1 : 0 (828/153) [434/80]
+|   |   |   zeroCrossingRate_min >= 0.1 : 1 (18/3) [6/0]
+|   |   energy >= 0.08
+|   |   |   zeroCrossingRate_min < 0.03 : 0 (929/305) [455/176]
+|   |   |   zeroCrossingRate_min >= 0.03 : 1 (1245/239) [628/109]
+|   energy >= 0.13 : 1 (4577/301) [2310/152]
+
+Size of the tree : 17
+
+Time taken to build model: 0.49 seconds
+Time taken to test model on training data: 0.16 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances       17704               86.8737 
+Incorrectly Classified Instances      2675               13.1263 
+Kappa statistic                          0.7372
+Mean absolute error                      0.209 
+Root mean squared error                  0.3232
+Relative absolute error                 41.8002 
+Root relative squared error             64.653  
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 9309 1026 |    a = 0
+ 1649 8395 |    b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances       17607               86.3978 
+Incorrectly Classified Instances      2772               13.6022 
+Kappa statistic                          0.7277
+Mean absolute error                      0.2116
+Root mean squared error                  0.3264
+Relative absolute error                 42.3314 
+Root relative squared error             65.2803 
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 9191 1144 |    a = 0
+ 1628 8416 |    b = 1
+
