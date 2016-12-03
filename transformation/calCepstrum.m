@@ -9,16 +9,8 @@ for i = 1:length(abs_fft)
 end
 
 logSpectrum = log(full_abs_fft+1);
-% figure('Name', 'Cepstrum');
-% subplot(3,1,1);
-% plot(full_abs_fft)
-% subplot(3,1,2);
-% plot(logSpectrum)
-
 full_cepstrum = ifft(logSpectrum);
 cepstrum = full_cepstrum(1:(length(full_cepstrum)/2+1));
-% subplot(3,1,3);
-% plot(cepstrum(1:(length(cepstrum)/2+1)));
 
 end
 

@@ -1,0 +1,65 @@
+
+Options: -M 2 -V 0.001 -N 3 -S 1 -L 4 
+
+
+REPTree
+============
+
+cepstralMostDominantPeak_min < 0.02
+|   cepstralMostDominantPeak_min < 0.01 : 0 (5592/462) [2821/235]
+|   cepstralMostDominantPeak_min >= 0.01
+|   |   cepstralMostDominantPeak_min < 0.02 : 0 (1372/366) [665/162]
+|   |   cepstralMostDominantPeak_min >= 0.02
+|   |   |   cepstralLocPeak < 53.5 : 0 (391/139) [181/61]
+|   |   |   cepstralLocPeak >= 53.5 : 1 (724/312) [362/138]
+cepstralMostDominantPeak_min >= 0.02
+|   cepstralMostDominantPeak_min < 0.03
+|   |   cepstralLocPeak < 53.5
+|   |   |   energy_min < 0.23 : 1 (169/72) [72/30]
+|   |   |   energy_min >= 0.23 : 0 (16/2) [10/3]
+|   |   cepstralLocPeak >= 53.5 : 1 (427/72) [223/36]
+|   cepstralMostDominantPeak_min >= 0.03 : 1 (4895/32) [2459/25]
+
+Size of the tree : 15
+
+Time taken to build model: 0.28 seconds
+Time taken to test model on training data: 0.15 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances       18232               89.4646 
+Incorrectly Classified Instances      2147               10.5354 
+Kappa statistic                          0.789 
+Mean absolute error                      0.1603
+Root mean squared error                  0.2831
+Relative absolute error                 32.0686 
+Root relative squared error             56.6292 
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 9618  717 |    a = 0
+ 1430 8614 |    b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances       18201               89.3125 
+Incorrectly Classified Instances      2178               10.6875 
+Kappa statistic                          0.7859
+Mean absolute error                      0.1665
+Root mean squared error                  0.2894
+Relative absolute error                 33.3037 
+Root relative squared error             57.889  
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 9693  642 |    a = 0
+ 1536 8508 |    b = 1
+

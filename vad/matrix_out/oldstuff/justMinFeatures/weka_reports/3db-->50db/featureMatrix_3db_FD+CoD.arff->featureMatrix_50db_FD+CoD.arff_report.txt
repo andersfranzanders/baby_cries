@@ -1,0 +1,70 @@
+
+Options: -M 2 -V 0.001 -N 3 -S 1 -L 4 
+
+
+REPTree
+============
+
+unnormalizedSpectralEntropy_min < 476.9
+|   corMagPeak_min < 0.01
+|   |   corMagPeak_min < 0
+|   |   |   unnormalizedSpectralEntropy_min < 393.34 : 0 (2735/139) [1380/46]
+|   |   |   unnormalizedSpectralEntropy_min >= 393.34 : 1 (8/3) [1/0]
+|   |   corMagPeak_min >= 0 : 0 (608/79) [295/29]
+|   corMagPeak_min >= 0.01
+|   |   mostDominantFrequency_min < 53.83
+|   |   |   corMagPeak_min < 0.2 : 0 (1108/343) [551/149]
+|   |   |   corMagPeak_min >= 0.2 : 1 (421/118) [233/74]
+|   |   mostDominantFrequency_min >= 53.83 : 0 (2055/396) [1010/194]
+unnormalizedSpectralEntropy_min >= 476.9
+|   unnormalizedSpectralEntropy_min < 914.39
+|   |   mostDominantFrequency_min < 118.44
+|   |   |   corPeakCount < 1.5 : 0 (41/6) [24/8]
+|   |   |   corPeakCount >= 1.5 : 1 (703/63) [371/21]
+|   |   mostDominantFrequency_min >= 118.44
+|   |   |   mostDominantFrequency_min < 398.37 : 0 (656/185) [303/105]
+|   |   |   mostDominantFrequency_min >= 398.37 : 1 (548/166) [271/83]
+|   unnormalizedSpectralEntropy_min >= 914.39 : 1 (4703/485) [2354/235]
+
+Size of the tree : 21
+
+Time taken to build model: 0.56 seconds
+Time taken to test model on training data: 0.23 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances       17452               85.6372 
+Incorrectly Classified Instances      2927               14.3628 
+Kappa statistic                          0.7125
+Mean absolute error                      0.2299
+Root mean squared error                  0.339 
+Relative absolute error                 45.9876 
+Root relative squared error             67.8141 
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 9087 1248 |    a = 0
+ 1679 8365 |    b = 1
+
+
+=== Error on test data ===
+
+Correctly Classified Instances       17255               84.6705 
+Incorrectly Classified Instances      3124               15.3295 
+Kappa statistic                          0.6927
+Mean absolute error                      0.2646
+Root mean squared error                  0.3495
+Relative absolute error                 52.9331 
+Root relative squared error             69.9096 
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 9486  849 |    a = 0
+ 2275 7769 |    b = 1
+

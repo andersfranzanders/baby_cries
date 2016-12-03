@@ -1,0 +1,52 @@
+
+Options: -M 2 -V 0.001 -N 3 -S 1 -L 3 
+
+
+REPTree
+============
+
+corMagPeak_min < 0.4 : 0 (13366/2320) [6663/1170]
+corMagPeak_min >= 0.4 : 1 (13804/2732) [6922/1396]
+
+Size of the tree : 3
+
+Time taken to build model: 0.46 seconds
+Time taken to test model on training data: 0.2 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances       33137               81.3078 
+Incorrectly Classified Instances      7618               18.6922 
+Kappa statistic                          0.6262
+Mean absolute error                      0.3037
+Root mean squared error                  0.3896
+Relative absolute error                 60.743  
+Root relative squared error             77.9378 
+Total Number of Instances            40755     
+
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+ 16539  4128 |     a = 0
+  3490 16598 |     b = 1
+
+
+=== Error on test data ===
+
+Correctly Classified Instances       17112               83.9688 
+Incorrectly Classified Instances      3267               16.0312 
+Kappa statistic                          0.6802
+Mean absolute error                      0.287 
+Root mean squared error                  0.366 
+Relative absolute error                 57.4076 
+Root relative squared error             73.2088 
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 7764 2571 |    a = 0
+  696 9348 |    b = 1
+

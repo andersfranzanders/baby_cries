@@ -1,0 +1,64 @@
+
+Options: -M 2 -V 0.001 -N 3 -S 1 -L 4 
+
+
+REPTree
+============
+
+cepstralMostDominantPeak_min < 0.02
+|   cepstralMostDominantPeak_min < 0.01 : 0 (11969/697) [5982/370]
+|   cepstralMostDominantPeak_min >= 0.01
+|   |   energy_min < 0.06 : 0 (2356/676) [1175/326]
+|   |   energy_min >= 0.06
+|   |   |   cepstralLocPeak < 55.5 : 0 (316/118) [186/69]
+|   |   |   cepstralLocPeak >= 55.5 : 1 (586/206) [278/103]
+cepstralMostDominantPeak_min >= 0.02
+|   cepstralMostDominantPeak_min < 0.05
+|   |   energy_min < 0.08
+|   |   |   zeroCrossingRate < 0.2 : 1 (1249/289) [615/140]
+|   |   |   zeroCrossingRate >= 0.2 : 0 (55/4) [23/2]
+|   |   energy_min >= 0.08 : 1 (1630/77) [825/43]
+|   cepstralMostDominantPeak_min >= 0.05 : 1 (9009/5) [4501/4]
+
+Size of the tree : 15
+
+Time taken to build model: 1 seconds
+Time taken to test model on training data: 0.3 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances       37626               92.3224 
+Incorrectly Classified Instances      3129                7.6776 
+Kappa statistic                          0.8463
+Mean absolute error                      0.1225
+Root mean squared error                  0.2475
+Relative absolute error                 24.5026 
+Root relative squared error             49.5001 
+Total Number of Instances            40755     
+
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+ 19800   867 |     a = 0
+  2262 17826 |     b = 1
+
+
+=== Error on test data ===
+
+Correctly Classified Instances       18193               89.2733 
+Incorrectly Classified Instances      2186               10.7267 
+Kappa statistic                          0.7851
+Mean absolute error                      0.158 
+Root mean squared error                  0.2902
+Relative absolute error                 31.6144 
+Root relative squared error             58.0477 
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 9762  573 |    a = 0
+ 1613 8431 |    b = 1
+

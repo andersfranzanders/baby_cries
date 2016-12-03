@@ -1,11 +1,11 @@
-pathToTrainingset = '/Users/franzanders/Documents/HTWK/Master/5. Semester/Masterarbeit_LaBP/baby_code_privateGit/matrix_out/newMins_newFeats/training_arff/50db';
-pathToTestset = '/Users/franzanders/Documents/HTWK/Master/5. Semester/Masterarbeit_LaBP/baby_code_privateGit/matrix_out/newMins_newFeats/training_arff/3db';
-outPath = '/Users/franzanders/Documents/HTWK/Master/5. Semester/Masterarbeit_LaBP/baby_code_privateGit/matrix_out/newMins_newFeats/weka_reports/';
+pathToTrainingset = '/Users/franzanders/Documents/HTWK/Master/5. Semester/Masterarbeit_LaBP/baby_code_privateGit/matrix_out/newMins_newFeats_tiefe3/training_arff/3db';
+pathToTestset = '/Users/franzanders/Documents/HTWK/Master/5. Semester/Masterarbeit_LaBP/baby_code_privateGit/matrix_out/newMins_newFeats_tiefe3/training_arff/3db';
+outPath = '/Users/franzanders/Documents/HTWK/Master/5. Semester/Masterarbeit_LaBP/baby_code_privateGit/matrix_out/newMins_newFeats_tiefe3/weka_reports/';
 
 
 preambel = 'java -cp';
 wekapath = ' /Applications/Weka/weka-3-6-13/weka.jar';
-classifier = ' weka.classifiers.trees.REPTree -M 2 -V 0.001 -N 3 -S 1 -L 4 -t';
+classifier = ' weka.classifiers.trees.REPTree -M 2 -V 0.001 -N 3 -S 1 -L 3 -t';
 training_set_names = getAllFileNamesInDirectory(pathToTrainingset);
 test_set_names = getAllFileNamesInDirectory(pathToTestset);
 
