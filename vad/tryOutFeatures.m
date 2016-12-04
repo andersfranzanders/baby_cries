@@ -1,5 +1,5 @@
-pathToTrainingset = '../audiobase/truncated/real_noise/3db/';
-trainingSignal = 'cry_clean06_barcelona_3db'
+pathToTrainingset = '../audiobase/truncated/real_noise_test/';
+trainingSignal = 'cry_clean07_ambience_7db'
 
 featureMatrix = zeros(1,4);
 
@@ -16,15 +16,16 @@ plot(t,x);
 [support,M] = windowAndExtractFeatures( x,classSignal,25,Fs );
 
 
-MwithMins = addMinsToM_new(M,4,25);
+%MwithMins = addMinAndMaxToM(M,4,25);
 
 hold on
 subplot(4,1,1);    
-plot(support/Fs,MwithMins(:,end),'r');
+plot(support/Fs,M(:,end),'r');
 
 hold on
 subplot(4,1,2);    
-plot(support/Fs,M(:,7),'b');
+plot(support/Fs,M(:,15),'b');
+
 
 
 

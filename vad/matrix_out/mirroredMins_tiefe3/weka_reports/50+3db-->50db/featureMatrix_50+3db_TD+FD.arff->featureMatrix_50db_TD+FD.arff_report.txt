@@ -1,0 +1,56 @@
+
+Options: -M 2 -V 0.001 -N 3 -S 1 -L 3 
+
+
+REPTree
+============
+
+unnormalizedSpectralEntropy_min < 363.56
+|   energy_min < 0.01 : 0 (6942/232) [3542/133]
+|   energy_min >= 0.01
+|   |   mostDominantFrequency_min < 398.37 : 0 (5394/846) [2670/441]
+|   |   mostDominantFrequency_min >= 398.37 : 1 (1895/919) [946/458]
+unnormalizedSpectralEntropy_min >= 363.56 : 1 (12939/1601) [6427/793]
+
+Size of the tree : 7
+
+Time taken to build model: 1.01 seconds
+Time taken to test model on training data: 0.34 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances       35332               86.6937 
+Incorrectly Classified Instances      5423               13.3063 
+Kappa statistic                          0.7342
+Mean absolute error                      0.2081
+Root mean squared error                  0.3226
+Relative absolute error                 41.6379 
+Root relative squared error             64.5275 
+Total Number of Instances            40755     
+
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+ 16896  3771 |     a = 0
+  1652 18436 |     b = 1
+
+
+=== Error on test data ===
+
+Correctly Classified Instances       18754               92.0261 
+Incorrectly Classified Instances      1625                7.9739 
+Kappa statistic                          0.8407
+Mean absolute error                      0.1501
+Root mean squared error                  0.2354
+Relative absolute error                 30.0285 
+Root relative squared error             47.0877 
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 9084 1251 |    a = 0
+  374 9670 |    b = 1
+

@@ -1,4 +1,4 @@
-function [ MwithMins ] = addMinsToM_new( M, minWindow, originalWindowLengthInMs )
+function [ MwithMins ] = addMinAndMaxToM( M, minWindow, originalWindowLengthInMs )
 
 
 [rows,cols] = size(M);
