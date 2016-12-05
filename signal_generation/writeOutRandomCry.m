@@ -1,11 +1,12 @@
 pathToCrySet = '../audiobase/single_cries/clean/';
-noiseSignal = '../audiobase/truncated/noise/corridor';
+noisePath = '../audiobase/truncated/noise_test/';
+noiseName = 'ambience';
 outPath = '../audiobase/random_cries/';
 cryEvents = 7;
-SNRinDB = -5;
+SNRinDB = 30;
 
 figure('Name', 'RandomSignal','position', [100, 100, 700, 700])
-[x,Cs,Fs] = produceRandomCry(pathToCrySet,noiseSignal,cryEvents,2, SNRinDB);
+[x,Cs,Fs] = produceRandomCry(pathToCrySet,strcat(noisePath,noiseName),cryEvents,2, SNRinDB);
 CMatrix = convertClassSignalToMatrix(Cs,Fs);
 
 t = (0:1/Fs:(length(x)-1)/Fs);
@@ -16,7 +17,7 @@ plot(t,Cs);
 
 CMatrix
 
-filename = strcat(outPath,'RandomCry_',num2str(cryEvents),'events_',num2str(SNRinDB),'dbSNR');
+filename = strcat(outPath,'RandomCry_',num2str(cryEvents),'events_',num2str(SNRinDB),'dbSNR_',noiseName);
 audiowrite(strcat(filename,'.wav'),x,Fs,'BitsPerSample',16);
 
 dlmwrite(strcat(filename,'.txt'),CMatrix,'delimiter',' ');

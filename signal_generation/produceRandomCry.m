@@ -30,7 +30,7 @@ for i =1:cryEvents
     audio = crySet{randCrySegment};
     
     %apply random gain to cry
-    randomGain = 0.5 + (1-0.5)*rand();
+    randomGain = 0.4 + (1-0.4)*rand();
     audio = audio.*randomGain;
     
     %concatinate to output-signal
