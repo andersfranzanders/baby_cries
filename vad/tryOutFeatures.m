@@ -1,5 +1,5 @@
-pathToTrainingset = '../audiobase/truncated/real_noise_test/';
-trainingSignal = 'cry_clean07_ambience_7db'
+pathToTrainingset = '../audiobase/random_cries/';
+trainingSignal = 'RandomCry_3events_5dbSNR'
 
 featureMatrix = zeros(1,4);
 
@@ -15,27 +15,16 @@ plot(t,x);
 
 [support,M] = windowAndExtractFeatures( x,classSignal,25,Fs );
 
+thresholdedM = thresholdAllFeatures(M);
+smoothedM = postProcessM03(thresholdedM);
 
-%MwithMins = addMinAndMaxToM(M,4,25);
-
-hold on
+hold on;
 subplot(4,1,1);    
-plot(support/Fs,M(:,end),'r');
+plot(support/Fs,smoothedM,'g');
 
-hold on
-subplot(4,1,2);    
-plot(support/Fs,M(:,15),'b');
-
-
-
-
-
-% thresholdedM = thresholdAllFeatures(MwithMins);
-% processedM = postProcessM03(thresholdedM);
-% 
-% hold on;
-% subplot(4,1,1);    
-% plot(support/Fs,processedM,'g');
+hold on;
+subplot(4,1,1);    
+plot(support/Fs,smoothedM,'r');
 % 
 % 
 % 

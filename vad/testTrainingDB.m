@@ -12,29 +12,17 @@ for i = 1:length(training_set)
     subplot(length(training_set),1,i);    
     plot(t,x);
     
-    [support,M] = windowAndExtractFeatures_newFeats( x,classSignal,25,Fs );
-    M = addMinsToM(M, 3, 25);
+    [support,M] = windowAndExtractFeatures( x,classSignal,25,Fs );
     thresholdedM = thresholdAllFeatures(M);
-    postProcessedM = postProcessM03(thresholdedM);
+    postProcessedM = decisionSmoothing(thresholdedM);
     
     hold on;
     subplot(length(training_set),1,i);    
     plot(support/Fs,M(:,end));
     
-%      hold on;
-%     subplot(length(training_set),1,i);    
-%     plot(support/Fs,thresholdedM);
-    
     hold on;
     subplot(length(training_set),1,i);    
     plot(support/Fs,postProcessedM, 'g');
-
-    
-    
-    
-%         hold on;
-%     subplot(length(training_set),1,i);    
-%     plot(support/Fs,thresholdedM);
     
 
 end

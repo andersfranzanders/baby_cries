@@ -1,8 +1,7 @@
-function M = postProcessM03(M)
+function M = decisionSmoothing(M)
 
 
 minVoiceRun = 4;
-%minVoiceRun = 4;
 minSilenceRun = 4;
 
 
