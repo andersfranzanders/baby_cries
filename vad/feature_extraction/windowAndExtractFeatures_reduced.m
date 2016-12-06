@@ -1,4 +1,4 @@
-function [ support,M] = windowAndExtractFeatures( x,classSignal,windowSizeInMs,Fs )
+function [ support, M,xInWindows,specto,ceptogram] = windowAndExtractFeatures( x,classSignal,windowSizeInMs,Fs )
 
 %cut Signal into overlapping Windows and calculate spectogram by STFT
 xInWindows = cutSignalIntoWindows(x,windowSizeInMs,Fs);
@@ -14,21 +14,13 @@ support = 1:(cols/2):lengthOfOriginalSignal;
 % calculate Features
 M = zeros(rows, 10);
 
-[RMSfeats, ZCRfeats] = calTimeDomainFeatures(xInWindows);
-[unnormSpecEntsFeats, normSpecEntsFeats, domFreqFeats ] = calFrequencyDomainFeatures( specto, Fs,200, 8000);
-[cepstrmDomPeakFeat, cepstrumLocPeakFeat]  = calCepstralFeatures(ceptogram,Fs,200,800);
-[corMagPeakFeat, corPeakCountFeat] =  calCorrelationFeatures( xInWindows, 200,800, Fs );
+[RMSfeats] = calTimeDomainFeatures(xInWindows);
+%[unnormSpecEntsFeats, normSpecEntsFeats, domFreqFeats ] = calFrequencyDomainFeatures( specto, Fs,200, 8000);
+[cepstrmDomPeakFeat]  = calCepstralFeatures(ceptogram,Fs,200,800);
+%[corMagPeakFeat, corPeakCountFeat] =  calCorrelationFeatures( xInWindows, 200,800, Fs );
 
 M(:,1) = RMSfeats;
-M(:,2) = ZCRfeats;
-M(:,3) = unnormSpecEntsFeats;
-M(:,4) = normSpecEntsFeats;
-M(:,5) = domFreqFeats;
 M(:,6) = cepstrmDomPeakFeat;
-M(:,7) = cepstrumLocPeakFeat;
-M(:,8) = corMagPeakFeat;
-M(:,9) = corPeakCountFeat;
-%featureMatrix(:,11:end-1) = calMFCCgram( specto, 30, 13, 50, 10000, Fs );
 
 %calculate Classes for every Window
 Cs = calculateClasses(xInWindows, classSignal);

@@ -2,7 +2,7 @@ pathToCrySet = '../audiobase/single_cries/clean/';
 noisePath = '../audiobase/truncated/noise_test/';
 noiseName = 'ambience';
 outPath = '../audiobase/random_cries/';
-cryEvents = 7;
+cryEvents = 4;
 SNRinDB = 30;
 
 figure('Name', 'RandomSignal','position', [100, 100, 700, 700])
