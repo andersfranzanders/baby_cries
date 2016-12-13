@@ -1,0 +1,19 @@
+function [ thresholdedM ] = thresholdFeatures_CeD_002( M )
+
+[rows,cols] = size(M);
+thresholdedM = zeros(1,rows);
+
+for i =1:rows
+     cepstralMostDominantPeak_min = M(i,15);
+     
+    if cepstralMostDominantPeak_min < 0.02
+        thresholdedM(i) =  0; 
+    else
+        thresholdedM(i) =  1;
+    end
+end
+
+
+
+end
+

@@ -1,0 +1,52 @@
+
+Options: -M 2 -V 0.0001 -N 3 -S 1 -L 2 
+
+
+REPTree
+============
+
+cepstralMostDominantPeak_min < 0.02 : 0 (7906/1256) [3949/627]
+cepstralMostDominantPeak_min >= 0.02 : 1 (5680/240) [2844/123]
+
+Size of the tree : 3
+
+Time taken to build model: 0.56 seconds
+Time taken to test model on training data: 0.27 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances       18133               88.9789 
+Incorrectly Classified Instances      2246               11.0211 
+Kappa statistic                          0.7791
+Mean absolute error                      0.1896
+Root mean squared error                  0.3079
+Relative absolute error                 37.9184 
+Root relative squared error             61.5779 
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+    a    b   <-- classified as
+ 9972  363 |    a = 0
+ 1883 8161 |    b = 1
+
+
+=== Error on test data ===
+
+Correctly Classified Instances         726               92.9577 
+Incorrectly Classified Instances        55                7.0423 
+Kappa statistic                          0.859 
+Mean absolute error                      0.1585
+Root mean squared error                  0.2636
+Relative absolute error                 31.7145 
+Root relative squared error             52.7328 
+Total Number of Instances              781     
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 376  25 |   a = 0
+  30 350 |   b = 1
+

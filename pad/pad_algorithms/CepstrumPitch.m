@@ -16,7 +16,7 @@ truncedCeps = truncedCeps.*weights;
 if isempty(p)
    maximumP = 0;
 end
-pitch = Fs/(locs(index)+lowerBound);
+pitch = Fs/((locs(index)+lowerBound));
    
 end
 

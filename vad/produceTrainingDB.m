@@ -1,8 +1,8 @@
 %pathToTrainingset = '../audiobase/truncated/real_noise/50+3db/';
-pathToTrainingset = '../audiobase/truncated/real_noise_test/';
+pathToTrainingset = '../audiobase/truncated/real_noise/7db_test/';
 training_set = getAllFileNamesInDirectory(pathToTrainingset);
 noiseLevel = '7db';
-outPath = 'vad/matrix_out/mirroredMins_tiefe3/training_arff/';
+outPath = 'vad/matrix_out/2000/training_arff/';
 
 featureMatrix = zeros(1,10+9);
 
@@ -14,12 +14,12 @@ for i = 1:length(training_set)
     [x,Fs,classSignal] = readInAudioAndClassification(strcat(pathToTrainingset,training_set{i}));
 
     
-    [support,M] = windowAndExtractFeatures( x,classSignal,25,Fs );
+    [support,M] = windowAndExtractFeatures_2000( x,classSignal,25,Fs );
 
     featureMatrix = cat(1,featureMatrix,M);
 end
 
-%featureMatrix = tripleNegativeClasses(featureMatrix);
+featureMatrix = tripleNegativeClasses(featureMatrix);
 
 %dlmwrite(strcat(outPath,'featureMatrix_',noiseLevel,'_all.arff'),featureMatrix(:,[1,10,2,11,3,12,4,13,5,14,6,15,7,16,8,17,9,18,19]));
 dlmwrite(strcat(outPath,'featureMatrix_',noiseLevel,'_TD.arff'),featureMatrix(:,[1,10,2,11,19]));

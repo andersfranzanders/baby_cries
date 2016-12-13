@@ -1,0 +1,52 @@
+
+Options: -M 2 -V 0.0001 -N 3 -S 1 -L 2 
+
+
+REPTree
+============
+
+energy_min < 0.06 : 0 (15128/2700) [7541/1357]
+energy_min >= 0.06 : 1 (12042/1350) [6044/705]
+
+Size of the tree : 3
+
+Time taken to build model: 0.42 seconds
+Time taken to test model on training data: 0.22 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances       34643               85.0031 
+Incorrectly Classified Instances      6112               14.9969 
+Kappa statistic                          0.6996
+Mean absolute error                      0.2528
+Root mean squared error                  0.3556
+Relative absolute error                 50.58   
+Root relative squared error             71.1197 
+Total Number of Instances            40755     
+
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+ 18612  2055 |     a = 0
+  4057 16031 |     b = 1
+
+
+=== Error on test data ===
+
+Correctly Classified Instances       18844               92.4677 
+Incorrectly Classified Instances      1535                7.5323 
+Kappa statistic                          0.849 
+Mean absolute error                      0.2   
+Root mean squared error                  0.2695
+Relative absolute error                 40.0173 
+Root relative squared error             53.8989 
+Total Number of Instances            20379     
+
+
+=== Confusion Matrix ===
+
+     a     b   <-- classified as
+ 10290    45 |     a = 0
+  1490  8554 |     b = 1
+

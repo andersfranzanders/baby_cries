@@ -9,10 +9,11 @@ acf = acf(maxLag:end);
 
 if isempty(pks)
     pks = 0;
-end 
-[maxvalue, maxindex] = max(pks);
-location = locs(maxindex)+maxLag;
-
+    location = 0;
+else
+    [maxvalue, maxindex] = max(pks);
+    location = locs(maxindex)+maxLag;
+end
 pitch = Fs/location;
 
 

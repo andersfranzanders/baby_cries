@@ -1,5 +1,5 @@
 pathToTrainingset = '../audiobase/random_cries/';
-trainingSignal = 'RandomCry_3events_5dbSNR'
+trainingSignal = 'RandomCry_7events_5dbSNR_ambience'
 
 featureMatrix = zeros(1,4);
 
@@ -15,16 +15,13 @@ plot(t,x);
 
 [support,M] = windowAndExtractFeatures( x,classSignal,25,Fs );
 
-thresholdedM = thresholdAllFeatures(M);
-smoothedM = postProcessM03(thresholdedM);
+thresholdedM = thresholdFeatures_50u3db_CeDFD(M);
+%smoothedM = postProcessM03(thresholdedM);
 
 hold on;
 subplot(4,1,1);    
-plot(support/Fs,smoothedM,'g');
+plot(support/Fs,thresholdedM/2,'g');
 
-hold on;
-subplot(4,1,1);    
-plot(support/Fs,smoothedM,'r');
 % 
 % 
 % 
