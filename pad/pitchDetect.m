@@ -9,9 +9,11 @@ pitchByCepstrum = zeros(1,rows);
 pitchByHPS = zeros(1,rows);
 pitchByCBHPS = zeros(1,rows);
 pitchByDomFreq = zeros(1,rows);
+pitchByABHPS = zeros(1,rows);
 for i = 1:rows
     
     if Cs(i) > 0.5
+        
         
         x = xInWindows(i,:);
         cepstrum = ceptogram(i,:);
@@ -25,6 +27,7 @@ for i = 1:rows
          pitchByHPS(i) = HPS(X,Fs,minFreq,maxFreq,5);
 %         pitchByCBHPS(i) = CBHPS(X,cepstrum,minFreq,maxFreq,Fs);
          pitchByDomFreq(i) = DomFreq(X,Fs);
+         pitchByABHPS(i) = ABHPS(x,X,minFreq,maxFreq,Fs,i);
     end
 end
 

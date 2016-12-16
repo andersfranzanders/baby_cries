@@ -12,7 +12,7 @@ if isempty(pks)
     location = 0;
 else
     [maxvalue, maxindex] = max(pks);
-    location = locs(maxindex)+maxLag;
+    location = locs(maxindex)+maxLag-1;
 end
 pitch = Fs/location;
 

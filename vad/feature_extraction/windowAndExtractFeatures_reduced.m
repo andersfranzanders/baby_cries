@@ -16,7 +16,7 @@ M = zeros(rows, 10);
 
 [RMSfeats] = calTimeDomainFeatures(xInWindows);
 %[unnormSpecEntsFeats, normSpecEntsFeats, domFreqFeats ] = calFrequencyDomainFeatures( specto, Fs,200, 8000);
-[cepstrmDomPeakFeat]  = calCepstralFeatures(ceptogram,Fs,200,800);
+[cepstrmDomPeakFeat]  = calCepstralFeatures(ceptogram,Fs,200,2000);
 %[corMagPeakFeat, corPeakCountFeat] =  calCorrelationFeatures( xInWindows, 200,800, Fs );
 
 M(:,1) = RMSfeats;

@@ -1,0 +1,4 @@
+	Sensitivity	Specificity	Accuracy
+3db		1 			1 			1
+50db	1 			1 			0
+7db		0 			0 			0
