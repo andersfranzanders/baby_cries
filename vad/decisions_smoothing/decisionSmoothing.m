@@ -51,11 +51,11 @@ for i = 2:length(M)
 end
 
 
-for i = 1:length(M)
-    if M(i) == 1
-        M(i) = 0.8;
-    end
-end
+% for i = 1:length(M)
+%     if M(i) == 1
+%         M(i) = 0.8;
+%     end
+% end
 
 end
 
