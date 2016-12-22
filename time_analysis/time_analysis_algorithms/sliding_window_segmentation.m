@@ -1,4 +1,4 @@
-function [ breakpoints,global_errors,global_densities, global_derivatives,global_regLines ] = sliding_window_segmentation( Cs, threshold )
+function [ breakpoints,densitiesOfSegments,global_errors,global_densities, global_derivatives,global_regLines ] = sliding_window_segmentation( Cs, threshold )
 
 windowStart = 1;
 numCs = length(Cs);
@@ -8,6 +8,7 @@ global_densities = zeros(1,numCs);
 global_derivatives = zeros(1,numCs);
 breakpoints = zeros(1,numCs);
 global_regLines = zeros(1,numCs);
+densitiesOfSegments = zeros(1,numCs);
 
 old_error = 0;
 densitiesOfWindow = [];
@@ -24,6 +25,7 @@ for windowEnd = 2:numCs
     
     if error_difference > threshold
         breakpoints(windowEnd) = 1;
+        densitiesOfSegments(windowStart:windowEnd) = mean(densitiesOfWindow);
         
         global_regLines(windowStart:windowEnd-1) = currentRegLine;
         windowStart = windowEnd;
@@ -38,6 +40,7 @@ for windowEnd = 2:numCs
     
 end
 global_regLines(windowStart:windowEnd-1) = currentRegLine;
+densitiesOfSegments(windowStart:windowEnd) = mean(densitiesOfWindow);
 
 end
 

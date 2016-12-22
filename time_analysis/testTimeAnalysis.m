@@ -9,15 +9,11 @@ for i = 1:length(training_set)
     
     hold on;
     t = (0:1/Fs:(length(x)-1)/Fs);
-    subplot(length(training_set)*2,1,2*i-1);    
-    plot(t,x);
+    
     
     [calCs,support,realCs,xInWindows,spectogram,ceptogram] = voiceActivityDetection( x,classSignal,25,Fs );
-    [ breakpoints,global_errors,global_densities, global_derivs,global_regLine ] = sliding_window_segmentation( calCs, 15 );
+    [ breakpoints,densitiesOfSegments,global_errors,global_densities, global_derivs,global_regLine ] = sliding_window_segmentation( calCs, 15);
        
-    hold on;
-    subplot(length(training_set)*2,1,2*i-1);    
-    plot(support/Fs,calCs * 0.7, 'g');
     
     hold on;
     subplot(length(training_set)*2,1,2*i);    
@@ -34,10 +30,22 @@ for i = 1:length(training_set)
        hold on;
     subplot(length(training_set)*2,1,2*i);    
     plot(support/Fs,global_regLine, 'r');
+   
     
-       hold on;
+    hold on;
+    subplot(length(training_set)*2,1,2*i-1);    
+    stem(support/Fs,densitiesOfSegments / (2*max(densitiesOfSegments)), 'm');
+    
+    hold on;
+    subplot(length(training_set)*2,1,2*i-1);    
+    plot(t,x);
+    
+    hold on;
+    subplot(length(training_set)*2,1,2*i-1);    
+    plot(support/Fs,calCs * 0.7, 'g');
+    
+    hold on;
     subplot(length(training_set)*2,1,2*i-1);    
     plot(support/Fs,breakpoints, 'r');
-
 
 end
