@@ -12,7 +12,7 @@ for i = 1:length(training_set)
     
     
     [calCs,support,realCs,xInWindows,spectogram,ceptogram] = voiceActivityDetection( x,classSignal,25,Fs );
-    [  breakpoints,densitiesOfSegments,global_errors,global_densities, global_derivatives,global_regLines ] = SWTD_errorThreshold( calCs,300 );
+    [  breakpoints,densitiesOfSegments,global_errors,global_densities, global_derivatives,global_regLines ] = SWTD_errorThreshold( calCs,500 );
        
     length(global_errors)
     length(support)
@@ -23,7 +23,7 @@ for i = 1:length(training_set)
 % 
      hold on;
      subplot(length(training_set)*2,1,2*i-1);    
-     stem(support/Fs,densitiesOfSegments / (2*max(densitiesOfSegments)), 'g');
+     stem(support/Fs,densitiesOfSegments / (1.3*max(densitiesOfSegments)), 'c');
     
     hold on;
     subplot(length(training_set)*2,1,2*i-1);    
@@ -35,6 +35,6 @@ for i = 1:length(training_set)
     
     hold on;
     subplot(length(training_set)*2,1,2*i-1);    
-    plot(support/Fs,breakpoints, 'm');
+    stairs(support/Fs,breakpoints, 'm');
 
 end
