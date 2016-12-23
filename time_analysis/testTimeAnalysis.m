@@ -12,29 +12,18 @@ for i = 1:length(training_set)
     
     
     [calCs,support,realCs,xInWindows,spectogram,ceptogram] = voiceActivityDetection( x,classSignal,25,Fs );
-    [ breakpoints,densitiesOfSegments,global_errors,global_densities, global_derivs,global_regLine ] = sliding_window_segmentation( calCs, 15);
+    [  breakpoints,densitiesOfSegments,global_errors,global_densities, global_derivatives,global_regLines ] = SWTD_errorThreshold( calCs,300 );
        
-    
-    hold on;
-    subplot(length(training_set)*2,1,2*i);    
-    plot(support/Fs,global_densities, 'b');
-    
-    hold on;
-    subplot(length(training_set)*2,1,2*i);    
-    plot(support/Fs,global_errors, 'g');
-    
-    hold on;
-    subplot(length(training_set)*2,1,2*i);    
-    plot(support/Fs,global_derivs, 'm');
-    
-       hold on;
-    subplot(length(training_set)*2,1,2*i);    
-    plot(support/Fs,global_regLine, 'r');
-   
-    
-    hold on;
-    subplot(length(training_set)*2,1,2*i-1);    
-    stem(support/Fs,densitiesOfSegments / (2*max(densitiesOfSegments)), 'm');
+    length(global_errors)
+    length(support)
+     hold on;
+     subplot(length(training_set)*2,1,2*i);    
+     plot(support/Fs,global_errors, 'g');
+     
+% 
+     hold on;
+     subplot(length(training_set)*2,1,2*i-1);    
+     stem(support/Fs,densitiesOfSegments / (2*max(densitiesOfSegments)), 'g');
     
     hold on;
     subplot(length(training_set)*2,1,2*i-1);    
@@ -42,10 +31,10 @@ for i = 1:length(training_set)
     
     hold on;
     subplot(length(training_set)*2,1,2*i-1);    
-    plot(support/Fs,calCs * 0.7, 'g');
+    plot(support/Fs,calCs * 0.7, 'r');
     
     hold on;
     subplot(length(training_set)*2,1,2*i-1);    
-    plot(support/Fs,breakpoints, 'r');
+    plot(support/Fs,breakpoints, 'm');
 
 end

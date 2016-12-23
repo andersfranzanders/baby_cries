@@ -12,7 +12,7 @@ for i = 1:length(training_set)
     
     
     [calCs,support,realCs,xInWindows,spectogram,ceptogram] = voiceActivityDetection( x,classSignal,25,Fs );
-    [ breakpoints,densitiesOfSegments,global_errors,global_densities, global_derivs,global_regLine ] = sliding_window_segmentation( calCs, 20);
+    [ breakpoints,densitiesOfSegments] = SWTD_errorThreshold( calCs,2000 );
 
    
     
