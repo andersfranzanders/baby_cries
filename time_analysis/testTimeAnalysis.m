@@ -11,19 +11,17 @@ for i = 1:length(training_set)
     t = (0:1/Fs:(length(x)-1)/Fs);
     
     
-    [calCs,support,realCs,xInWindows,spectogram,ceptogram] = voiceActivityDetection( x,classSignal,25,Fs );
-    [  breakpoints,densitiesOfSegments,global_errors,global_densities, global_derivatives,global_regLines ] = SWTD_errorThreshold( calCs,500 );
-       
-    length(global_errors)
-    length(support)
-     hold on;
-     subplot(length(training_set)*2,1,2*i);    
-     plot(support/Fs,global_errors, 'g');
-     
-% 
-     hold on;
-     subplot(length(training_set)*2,1,2*i-1);    
-     stem(support/Fs,densitiesOfSegments / (1.3*max(densitiesOfSegments)), 'c');
+    [calCs,support] = voiceActivityDetection( x,classSignal,25,Fs );
+    [breakpoints,densitiesOfSegments,global_errors] = SWTD_densities_errorThreshold( calCs,100 );
+
+    hold on;
+    subplot(length(training_set)*2,1,2*i);    
+    plot(support/Fs,global_errors, 'g');
+    
+    hold on;
+    subplot(length(training_set)*2,1,2*i-1);    
+%     stem(support/Fs,densitiesOfSegments / (1.3*max(densitiesOfSegments)), 'c');
+    stem(support/Fs,densitiesOfSegments, 'c');
     
     hold on;
     subplot(length(training_set)*2,1,2*i-1);    

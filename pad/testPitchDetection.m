@@ -1,4 +1,4 @@
-pathToTrainingset = '../audiobase/truncated/youtube/';
+pathToTrainingset = '../audiobase/temptestbase/';
 training_set = getAllFileNamesInDirectory(pathToTrainingset);
 
 %Plot Input Signal
@@ -21,7 +21,7 @@ for i = 1:length(training_set)
     
     hold on;
     subplot(length(training_set)*2,1,2*i-1);    
-    plot(support/Fs,calCs, 'g');
+    plot(support/Fs,calCs*0.8, 'g');
     
 %     hold on;
 %     subplot(length(training_set)*2,1,2*i);    

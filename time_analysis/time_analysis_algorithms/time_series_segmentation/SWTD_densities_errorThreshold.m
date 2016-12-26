@@ -1,4 +1,4 @@
-function [  breakpoints,densitiesOfSegments,global_errors,global_densities, global_derivatives,global_regLines ] = SWTD_errorThreshold( Cs,threshold )
+function [  breakpoints,densitiesOfSegments,global_errors,global_densities, global_derivatives,global_regLines ] = SWTD_densities_errorThreshold( Cs,threshold )
 
 
 numCs = length(Cs);
@@ -28,13 +28,12 @@ while windowEnd < numCs
     end
     
     if new_error > threshold
-        [seppoint] = top_down_densities(window);
+        [seppoint] = TopDown_densities(window);
         new_windowEnd = windowStart+seppoint-1;
         breakpoints(new_windowEnd ) = 1;
         breakpoints(new_windowEnd - 1 ) = -1;
         
-        
-        densitiesOfSegments(windowStart: windowEnd) = mean(densitiesOfWindow(1:seppoint));
+        densitiesOfSegments(windowStart: windowEnd) = densitiesOfWindow(seppoint)/length(densitiesOfWindow(1:seppoint));
         global_regLines(windowStart: windowEnd) = currentRegLine;
         
         
@@ -50,4 +49,4 @@ while windowEnd < numCs
     
 end
 global_regLines(windowStart:windowEnd-1) = currentRegLine;
-densitiesOfSegments(windowStart:windowEnd) = mean(densitiesOfWindow);
+densitiesOfSegments(windowStart:windowEnd) = densitiesOfWindow(end)/length(densitiesOfWindow);
