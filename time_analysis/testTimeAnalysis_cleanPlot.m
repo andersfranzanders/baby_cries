@@ -12,13 +12,13 @@ for i = 1:length(training_set)
     
     
     [calCs,support] = voiceActivityDetection( x,classSignal,25,Fs );
-    [ breakpoints,densitiesOfSegments] = SWTD_densities_errorThreshold( calCs,2000 );
+    [ breakpoints,densitiesOfSegments] = SWTD_generic_errorThreshold( calCs,'tempo',10/20 );
 
    
 
     hold on;
     subplot(length(training_set),1,i);    
-    stem(support/Fs,densitiesOfSegments, 'c');
+    stem(support/Fs,densitiesOfSegments, 'm');
     
     hold on;
     subplot(length(training_set),1,i);    

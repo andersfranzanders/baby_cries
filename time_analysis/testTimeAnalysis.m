@@ -12,16 +12,20 @@ for i = 1:length(training_set)
     
     
     [calCs,support] = voiceActivityDetection( x,classSignal,25,Fs );
-    [breakpoints,densitiesOfSegments,global_errors] = SWTD_densities_errorThreshold( calCs,100 );
+    [  breakpoints,featuresOfSegments,global_errors,global_features, global_derivatives,global_regLines ] = SWTD_generic_errorThreshold(calCs,'tempo',10/20 );
 
     hold on;
     subplot(length(training_set)*2,1,2*i);    
-    plot(support/Fs,global_errors, 'g');
+    plot(support/Fs,global_errors*20, 'g');
     
-    hold on;
+     hold on;
+    subplot(length(training_set)*2,1,2*i);    
+    plot(support/Fs,global_features, 'b');
+    
+    
+     hold on;
     subplot(length(training_set)*2,1,2*i-1);    
-%     stem(support/Fs,densitiesOfSegments / (1.3*max(densitiesOfSegments)), 'c');
-    stem(support/Fs,densitiesOfSegments, 'c');
+    stem(support/Fs,featuresOfSegments, 'm');
     
     hold on;
     subplot(length(training_set)*2,1,2*i-1);    
