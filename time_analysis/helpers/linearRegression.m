@@ -12,7 +12,7 @@ if length(y) > 1
 
     y_hut = b1*x+b0;
 
-    error = sum( (y-y_hut ).^2 ) / length(y);
+    error = sum( (y-y_hut ).^2 ) / (length(y)-1);
 
 else
     error = 0;

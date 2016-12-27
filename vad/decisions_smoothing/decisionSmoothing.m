@@ -36,7 +36,7 @@ for i = 2:length(M)
   
 end
 
-silenceStart = 0;
+silenceStart = 1;
 for i = 2:length(M)
     if M(i-1) == 1 && M(i) == 0
         silenceStart = i;
