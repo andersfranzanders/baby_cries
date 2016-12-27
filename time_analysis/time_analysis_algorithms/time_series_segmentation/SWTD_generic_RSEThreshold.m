@@ -6,11 +6,13 @@ end
 
 maxPossibleError = 0;
 if (strcmp(feature,'densities') == 1 )
-   maxPossibleError = 70;
+   %maxPossibleError = 70;
+   maxPossibleError = 4000;
 end
 
 if (strcmp(feature,'tempo') == 1 )
-   maxPossibleError = 10;
+   %maxPossibleError = 10;
+   maxPossibleError = 70;
 end
 
 
@@ -47,7 +49,7 @@ while windowEnd < numCs
     featuresOfWindow = [featuresOfWindow, currentFeature];
     
     [new_error,currentRegLine] = linearRegression(featuresOfWindow);
-    new_error = sqrt(new_error)/maxPossibleError;
+    new_error = sqrt(new_error/maxPossibleError);
     if global_errors(windowEnd) == 0
         global_errors(windowEnd) = new_error;
     end
@@ -56,7 +58,6 @@ while windowEnd < numCs
         [seppoint] = TopDown_generic(window,feature);
         new_windowEnd = windowStart+seppoint-1;
         breakpoints(new_windowEnd ) = 1;
-        breakpoints(new_windowEnd - 1 ) = -1;
         
         featuresOfSegments(windowStart: windowEnd) = featuresOfWindow(seppoint)/length(featuresOfWindow(1:seppoint));
         global_regLines(windowStart: windowEnd) = currentRegLine;
