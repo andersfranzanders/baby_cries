@@ -24,14 +24,18 @@ for i = 1:length(training_set)
     
     hold on;
     subplot(length(training_set),1,i);    
-    plot(t,x,'k');
+    plot(t,x,'Color',[0.5,0.5,0.5]);
     
-    hold on;
+    new_x = convertToBlackX(x,calCs,support);
     subplot(length(training_set),1,i);    
-    plot(support/Fs,calCs * 0.85,'r');
+    plot(t,new_x,'k');
     
-    hold on;
-    subplot(length(training_set),1,i);    
-    plot(support/Fs,breakpointsDens, 'c');
+%     hold on;
+%     subplot(length(training_set),1,i);    
+%     plot(support/Fs,calCs * 0.85,'r');
+    
+%     hold on;
+%     subplot(length(training_set),1,i);    
+%     plot(support/Fs,breakpointsDens, 'c');
 
 end

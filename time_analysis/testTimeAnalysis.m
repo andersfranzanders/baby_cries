@@ -12,7 +12,6 @@ for i = 1:length(training_set)
     
     
     [calCs,support] = voiceActivityDetection( x,classSignal,25,Fs );
-   % [  breakpoints,featuresOfSegments,global_errors,global_features, global_derivatives,global_regLines ] = SWTD_generic_RSEThreshold(calCs,'densities',0.35);
     [ breakpointsDens, densities, breakpointsTempo, tempos, tempoErrors] = SWTD_cascaded( calCs, 0.2, 0.1 );
     
     hold on;
@@ -29,11 +28,15 @@ for i = 1:length(training_set)
     
     hold on;
     subplot(length(training_set)*2,1,2*i-1);    
-    plot(t,x, 'k');
+    plot(t,x,'Color',[0.4, 0.4, 0.4]);
     
-    hold on;
-    subplot(length(training_set)*2,1,2*i-1);    
-    plot(support/Fs,calCs * 0.7, 'r');
+    new_x = convertToBlackX(x,calCs,support);
+    subplot(length(training_set)*2,1,2*i-1); 
+    plot(t,new_x,'k');
+    
+%     hold on;
+%     subplot(length(training_set)*2,1,2*i-1);    
+%     plot(support/Fs,calCs * 0.7, 'r');
     
 %     hold on;
 %     subplot(length(training_set)*2,1,2*i-1);    
