@@ -9,23 +9,35 @@ for i = 1:length(training_set)
     
     hold on;
     t = (0:1/Fs:(length(x)-1)/Fs);
-    subplot(length(training_set)*2,1,2*i-1);    
-    plot(t,x);
+    
     
     [calCs,support,realCs,xInWindows,spectogram,ceptogram] = voiceActivityDetection( x,classSignal,25,Fs );
-%     [pitchByAMFD, pitchByACF,pitchByMACF,pitchByMAMFD,pitchByCepstrum,pitchByHPS,pitchByDomFreq] = pitchDetect(xInWindows,calCs,Fs,200,2000,ceptogram,spectogram);
+    [pitchByMPM,clarityByMPM] = pitchDetect(xInWindows,calCs,Fs,200,2000,ceptogram,spectogram);
      
+
     hold on;
     subplot(length(training_set)*2,1,2*i-1);    
-    plot(support/Fs,realCs);
+    plot(t,x,'Color',[0.4, 0.4, 0.4]);
     
-    hold on;
-    subplot(length(training_set)*2,1,2*i-1);    
-    plot(support/Fs,calCs*0.8, 'g');
+    new_x = convertToBlackX(x,calCs,support);
+    subplot(length(training_set)*2,1,2*i-1); 
+    plot(t,new_x,'k');
+
+%     hold on;
+%     subplot(length(training_set)*2,1,2*i-1);    
+%     plot(support/Fs,realCs);
     
 %     hold on;
-%     subplot(length(training_set)*2,1,2*i);    
-%     plot(support/Fs,pitchByHPS, 'm');
+%     subplot(length(training_set)*2,1,2*i-1);    
+%     plot(support/Fs,calCs*0.8, 'g');
+
+    hold on;
+    subplot(length(training_set)*2,1,2*i-1);    
+    plot(support/Fs,clarityByMPM, 'm');
+    
+    hold on;
+    subplot(length(training_set)*2,1,2*i);    
+    plot(support/Fs,pitchByMPM, 'm');
 %     
 %     hold on;
 %     subplot(length(training_set)*2,1,2*i);    
