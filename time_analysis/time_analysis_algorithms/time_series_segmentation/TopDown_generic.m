@@ -15,6 +15,7 @@ regLines = zeros(1,length(Cs));
 startArea = floor(0.5*length(Cs));
 endArea = length(Cs);
 pointsToTest = floor((endArea - startArea)/10);
+pointsToTest = floor((endArea - startArea)/15);
 
 seppoints = startArea:pointsToTest:endArea;
 seppoints = [seppoints,endArea];
@@ -32,7 +33,8 @@ for i = 1:length(seppoints)
             leftFeatures = [leftFeatures, trapz(left_Segment(1:j))];
         end
         if (strcmp(feature,'tempo') == 1)
-            leftFeatures = [leftFeatures, sum(left_Diffs(1:j) ~= 0)];
+            %leftFeatures = [leftFeatures, sum(left_Diffs(1:j) ~= 0)];
+            leftFeatures = [leftFeatures, sum(left_Diffs(1:j) == 1)];
         end
     end
     [left_error] = linearRegression(leftFeatures);
@@ -44,7 +46,8 @@ for i = 1:length(seppoints)
             rightFeatures = [rightFeatures, trapz(right_Segment(1:k))];
         end
         if (strcmp(feature,'tempo') == 1)
-            rightFeatures = [rightFeatures, sum(right_Diffs(1:k) ~= 0)];
+            %rightFeatures = [rightFeatures, sum(right_Diffs(1:k) ~= 0)];
+            rightFeatures = [rightFeatures, sum(right_Diffs(1:k) == 1)];
         end
     end
     [right_error] = linearRegression(rightFeatures);
@@ -67,7 +70,8 @@ for j=2:length(left_Segment)
         leftFeatures = [leftFeatures, trapz(left_Segment(1:j))];
     end
     if (strcmp(feature,'tempo') == 1)
-        leftFeatures = [leftFeatures, sum(left_Diffs(1:j) ~= 0)];
+        %leftFeatures = [leftFeatures, sum(left_Diffs(1:j) ~= 0)];
+        leftFeatures = [leftFeatures, sum(left_Diffs(1:j) == 1)];
     end
 end
 [left_error,left_regLine] = linearRegression(leftFeatures);
@@ -79,7 +83,8 @@ for k=2:length(right_Segment)
         rightFeatures = [rightFeatures, trapz(right_Segment(1:k))];
     end
     if (strcmp(feature,'tempo') == 1)
-        rightFeatures = [rightFeatures, sum(right_Diffs(1:k) ~= 0)];
+        %rightFeatures = [rightFeatures, sum(right_Diffs(1:k) ~= 0)];
+        rightFeatures = [rightFeatures, sum(right_Diffs(1:k) == 1)];
     end
 end
 [right_error,right_regLine] = linearRegression(rightFeatures);

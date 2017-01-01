@@ -11,8 +11,8 @@ if (strcmp(feature,'densities') == 1 )
 end
 
 if (strcmp(feature,'tempo') == 1 )
-   %maxPossibleError = 10;
-   maxPossibleError = 70;
+   %maxPossibleError = 70;
+   maxPossibleError = 10;
 end
 
 
@@ -41,7 +41,8 @@ while windowEnd < numCs
         currentFeature = trapz(window);
     end
      if strcmp(feature,'tempo') == 1
-        currentFeature = sum(diffWindow ~= 0);
+       %currentFeature = sum(diffWindow ~= 0);
+        currentFeature = sum(diffWindow == 1);
     end
     
     global_features(windowEnd) = currentFeature;
@@ -78,6 +79,6 @@ global_regLines(windowStart:windowEnd-1) = currentRegLine;
 featuresOfSegments(windowStart:windowEnd) = featuresOfWindow(end)/length(featuresOfWindow);
 
  if strcmp(feature,'tempo') == 1
-     featuresOfSegments = featuresOfSegments * -10;
+     featuresOfSegments = featuresOfSegments * -30;
     
  end

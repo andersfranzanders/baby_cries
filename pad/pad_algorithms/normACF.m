@@ -1,28 +1,19 @@
-function [ pitch, clarity ] = MPM( x,Fs,minFreq,maxFreq,k )
+function [ pitch,clarity ] = normACF( x,Fs,minFreq,maxFreq,k )
+
+pitch = 0;
+clarity = 1;
+
 minLag = floor(Fs/minFreq);
 maxLag = floor(Fs/maxFreq);
-pitch = 0;
-clarity = 0;
 
-%cal autocorrelation
 r = zeros(1,minLag);
 for i = 1:minLag
     x_j = x(1:minLag-i+1);
     x_jr = x(i:minLag);
-    r(i) = sum ( x_j.*x_jr );
+    r(i) = sum ( x_j.*x_jr ) / ( sqrt(sum(x_j.^2) * sum(x_jr.^2)));
 end
 
-%cal SDF-type III
-m = zeros(1,minLag);
-for i =1:minLag
-    x_j = x(1:minLag-i+1);
-    x_jr = x(i:minLag);
-    m(i) = sum(x_j.^2 + x_jr.^2);
-end
-
-
-n = (2*r)./m;
-
+n = r;
 
 % segment the n-signal
 startEndPoints = [];
@@ -61,7 +52,7 @@ end
 if ~isempty(keyPeaks)
     n_max = max(keyPeaks(:,1));
     threshold = n_max*k;
-    %threshold = n_max^2;
+    %threshold = n_max^4;
     %Pick first keyPeak above threshold
     [rows,cols] = size(keyPeaks);
     pitchIndex = 0;
@@ -76,4 +67,6 @@ if ~isempty(keyPeaks)
 
     pitch = Fs/pitchIndex;
 end
+
 end
+

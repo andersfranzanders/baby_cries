@@ -1,4 +1,4 @@
-function [ pitchByMPM,clarityByMPM] = pitchDetect( xInWindows,Cs,Fs,minFreq,maxFreq,ceptogram,specto)
+function [ pitchByMPM,clarityByMPM,pitchByNormACF,clarityByNormACF] = pitchDetect( xInWindows,Cs,Fs,minFreq,maxFreq,ceptogram,specto)
 
 [rows,cols] = size(xInWindows);
 pitchByAMFD = zeros(1,rows);
@@ -12,6 +12,9 @@ pitchByDomFreq = zeros(1,rows);
 pitchByABHPS = zeros(1,rows);
 pitchByMPM = zeros(1,rows);
 clarityByMPM = zeros(1,rows);
+pitchByNormACF = zeros(1,rows);
+clarityByNormACF = zeros(1,rows);
+
 for i = 1:rows
     
     if Cs(i) > 0.5
@@ -29,11 +32,13 @@ for i = 1:rows
 %          pitchByHPS(i) = HPS(X,Fs,minFreq,maxFreq,5);
 % %         pitchByCBHPS(i) = CBHPS(X,cepstrum,minFreq,maxFreq,Fs);
 %          pitchByDomFreq(i) = DomFreq(X,Fs);
-%          pitchByABHPS(i) = ABHPS(x,X,minFreq,maxFreq,Fs,i);
-        [pitchByMPM(i),clarityByMPM(i)] = MPM(x,Fs,minFreq,maxFreq,0.96);
+%          pitchByABHPS(i) = ABHPS(x,X,minFreq,maxFreq,Fs,i);v
+%        [pitchByNormACF(i),clarityByNormACF(i)] = normACF02(x,Fs,minFreq,maxFreq,0.8);
+        [pitchByMPM(i),clarityByMPM(i)] = MPM(x,Fs,minFreq,maxFreq,0.8);
     end
 end
-clarityByMPM = medfilt1(clarityByMPM,8);
+ clarityByMPM = medfilt1(clarityByMPM,10);
+ pitchByMPM = medfilt1(pitchByMPM,10);
 % pitchByAMFD = medfilt1(pitchByAMFD,8);
 % pitchByMAMFD = medfilt1(pitchByMAMFD,8);
 % pitchByACF = medfilt1(pitchByACF,8);

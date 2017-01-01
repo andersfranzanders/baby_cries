@@ -12,7 +12,7 @@ for i = 1:length(training_set)
     
     
     [calCs,support] = voiceActivityDetection( x,classSignal,25,Fs );
-    [ breakpointsDens, densities, breakpointsTempo, tempos, tempoErrors] = SWTD_cascaded( calCs, 0.2, 0.1 );
+    [ breakpointsDens, densities, breakpointsTempo, tempos, tempoErrors] = SWTD_cascaded( calCs, 0.7, 0.15 );
     
     hold on;
     subplot(length(training_set)*2,1,2*i);    
