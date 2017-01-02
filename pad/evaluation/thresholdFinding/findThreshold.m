@@ -5,6 +5,7 @@ training_set = getAllFileNamesInDirectory(pathToTrainingset);
  figure('Name', 'Signal','position', [200, 200, 700, 400])
 
 for i = 1:length(training_set)
+    
     [x,Fs,classSignal] = readInAudioAndClassification(strcat(pathToTrainingset,training_set{i}));
     
     hold on;
@@ -12,7 +13,11 @@ for i = 1:length(training_set)
     
     
     [calCs,support,realCs,xInWindows,spectogram,ceptogram] = voiceActivityDetection( x,classSignal,25,Fs );
-    [pitchByMPM,clarityByMPM,pitchByNormACF,clarityByNormACF] = pitchDetect(xInWindows,calCs,Fs,200,2000,ceptogram,spectogram);
+
+    
+    thresholds = 0.75:0.01:1
+    %thresholds = [0.75,0.95]
+    [ pitchMatrix ] = applyThresholdsToPAD( xInWindows,calCs,thresholds,Fs,200,2000);
      
 
     hold on;
@@ -22,27 +27,14 @@ for i = 1:length(training_set)
     new_x = convertToBlackX(x,calCs,support);
     subplot(length(training_set)*2,1,2*i-1); 
     plot(t,new_x,'k');
-
-%     hold on;
-%     subplot(length(training_set)*2,1,2*i-1);    
-%     plot(support/Fs,realCs);
     
-%     hold on;
-%     subplot(length(training_set)*2,1,2*i-1);    
-%     plot(support/Fs,calCs*0.8, 'g');
-
-%     hold on;
-%     subplot(length(training_set)*2,1,2*i-1);    
-%     plot(support/Fs,clarityByMPM, 'm');
-    
-
+    pitchErrors = calOctaveErrors(pitchMatrix)
+    [minValue,minIndex] = min(pitchErrors);
+    winnerThreshold = thresholds(minIndex)
     
     hold on;
-    subplot(length(training_set)*2,1,2*i-1);    
-    plot(support/Fs,clarityByNormACF, 'm');
-    
-    hold on;
-    subplot(length(training_set)*2,1,2*i);    
-    plot(support/Fs,pitchByNormACF, 'm');
+    subplot(length(training_set)*2,1,2*i); 
+    plot(support/Fs,pitchMatrix(minIndex,:),'m');
+
     
 end
