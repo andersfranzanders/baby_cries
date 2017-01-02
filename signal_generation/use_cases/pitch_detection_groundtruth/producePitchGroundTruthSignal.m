@@ -1,5 +1,5 @@
-pathToTrainingset = '../audiobase/temptestbase/';
-outPath = '../audiobase/testsignals/';
+%pathToTrainingset = '../audiobase/temptestbase/';
+pathToTrainingset = '../audiobase/testsignals/pitchTesting/';
 
 
 training_set = getAllFileNamesInDirectory(pathToTrainingset);
@@ -8,6 +8,7 @@ training_set = getAllFileNamesInDirectory(pathToTrainingset);
  figure('Name', 'Signal','position', [200, 200, 700, 400])
 
 for i = 1:length(training_set)
+    training_set{i}
     [x,Fs,classSignal] = readInAudioAndClassification(strcat(pathToTrainingset,training_set{i}));
     
     hold on;
@@ -15,7 +16,7 @@ for i = 1:length(training_set)
     
     
     [calCs,support,realCs,xInWindows,spectogram,ceptogram] = voiceActivityDetection( x,classSignal,25,Fs );
-    [pitchMatrix] = pitchDetect(xInWindows,calCs,Fs,200,2000,ceptogram,spectogram);
+    [pitchMatrix] = pitchDetect(xInWindows,realCs,Fs,200,2000,ceptogram,spectogram);
     
     gt = calGroundTruth(pitchMatrix,3);
 
@@ -31,8 +32,7 @@ for i = 1:length(training_set)
     subplot(length(training_set)*2,1,2*i);    
     plot(support/Fs,gt, 'b');
     
-    filename = strcat(outPath,training_set{i},'_pitchGroundTrouth');
-    audiowrite(strcat(filename,'.wav'),x,Fs,'BitsPerSample',16);
-    dlmwrite(strcat(filename,'.txt'),gt','delimiter',' ');
+    filename = strcat(pathToTrainingset,training_set{i});
+    dlmwrite(strcat(filename,'_pitchGT.txt'),gt','delimiter',' ');
     
 end

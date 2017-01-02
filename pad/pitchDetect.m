@@ -3,6 +3,9 @@ function [ pitchMatrix ] = pitchDetect( xInWindows,Cs,Fs,minFreq,maxFreq,ceptogr
 [rows,cols] = size(xInWindows);
 
 pitch_acorr_ACF_maxPeak = zeros(1,rows);
+pitch_acorr_nACF_maxPeak = zeros(1,rows);
+pitch_acorr_MPM_maxPeak = zeros(1,rows);
+
 pitch_acorr_ACF_mpmPeak = zeros(1,rows);
 pitch_acorr_nACF_mpmPeak = zeros(1,rows);
 pitch_acorr_MPM_mpmPeak = zeros(1,rows);
@@ -15,6 +18,10 @@ for i = 1:rows
         X = specto(i,:);
 
         pitch_acorr_ACF_maxPeak(i) = acorr_ACF_maxPeak(x,Fs,minFreq,maxFreq);
+        pitch_acorr_nACF_maxPeak(i) = acorr_nACF_maxPeak(x,Fs,minFreq,maxFreq);
+        pitch_acorr_MPM_maxPeak(i) = acorr_MPM_maxPeak( x,Fs,minFreq,maxFreq);
+        
+        
         pitch_acorr_ACF_mpmPeak(i) = acorr_ACF_mpmPeak(x,Fs,minFreq,maxFreq,0.95);
         pitch_acorr_nACF_mpmPeak(i) = acorr_nACF_mpmPeak(x,Fs,minFreq,maxFreq,0.85);
         pitch_acorr_MPM_mpmPeak(i) =  acorr_MPM_mpmPeak(x,Fs,minFreq,maxFreq,0.85);
@@ -31,6 +38,9 @@ end
 
 pitchMatrix = [];
 pitchMatrix = [pitchMatrix;pitch_acorr_ACF_maxPeak];
+pitchMatrix = [pitchMatrix;pitch_acorr_nACF_maxPeak];
+pitchMatrix = [pitchMatrix;pitch_acorr_MPM_maxPeak];
+
 pitchMatrix = [pitchMatrix;pitch_acorr_ACF_mpmPeak];
 pitchMatrix = [pitchMatrix;pitch_acorr_nACF_mpmPeak];
 pitchMatrix = [pitchMatrix;pitch_acorr_MPM_mpmPeak];
