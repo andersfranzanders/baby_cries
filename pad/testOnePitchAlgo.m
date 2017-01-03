@@ -13,7 +13,9 @@ for i = 1:rows
         X = specto(i,:);
         
         %pitches(i) = acorr_MPM_maxPeak( x,Fs,minFreq,maxFreq);
-        pitches(i) = acorr_nACF_maxPeak( x,Fs,minFreq,maxFreq);
+        %pitches(i) = acorr_nACF_maxPeak( x,Fs,minFreq,maxFreq);
+        %pitches(i) = acorr_nACF_maxPeak( x,Fs,minFreq,maxFreq);
+        pitches(i) = HPS( X,Fs,minFreq,maxFreq,5 );
     end
     
 end

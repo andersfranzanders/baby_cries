@@ -11,20 +11,21 @@ for i = 1:length(training_set)
     hold on;
     t = (0:1/Fs:(length(x)-1)/Fs);
     
-    
-    [calCs,support,realCs,xInWindows,spectogram,ceptogram] = voiceActivityDetection( x,classSignal,25,Fs );
+    [ support,xInWindows,specto,ceptogram] = windowAndTransform( x,25,Fs );
+    Cs = calculateClasses(xInWindows, classSignal);
 
     
-    thresholds = 0.75:0.01:1
+    %thresholds = 0.75:0.01:1
     %thresholds = [0.75,0.95]
-    [ pitchMatrix ] = applyThresholdsToPAD( xInWindows,calCs,thresholds,Fs,200,2000);
+    thresholds = 3:8;
+    [ pitchMatrix ] = applyThresholdsToPAD( xInWindows,Cs,thresholds,Fs,200,2000,specto);
      
 
     hold on;
     subplot(length(training_set)*2,1,2*i-1);    
     plot(t,x,'Color',[0.4, 0.4, 0.4]);
     
-    new_x = convertToBlackX(x,calCs,support);
+    new_x = convertToBlackX(x,Cs,support);
     subplot(length(training_set)*2,1,2*i-1); 
     plot(t,new_x,'k');
     
