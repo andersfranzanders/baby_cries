@@ -1,4 +1,4 @@
-function [ pitch ] = AMDF( x,Fs,minFreq,maxFreq )
+function [ pitch ] = AMDF_old( x,Fs,minFreq,maxFreq )
 
 minLag = floor(Fs/minFreq);
 maxLag = floor(Fs/maxFreq);

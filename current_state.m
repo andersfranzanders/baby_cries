@@ -10,16 +10,17 @@ for i = 1:length(training_set)
     t = (0:1/Fs:(length(x)-1)/Fs);
     
     [calCs,support,realCs,xInWindows,spectogram,ceptogram] = voiceActivityDetection( x,classSignal,25,Fs );
-    [breakpointsDens, densities, breakpointsTempo, tempos, tempoErrors] = SWTD_cascaded( calCs,0.2,0.08 );
-    [pitchByMPM,clarityByMPM] = pitchDetect(xInWindows,calCs,Fs,200,2000,ceptogram,spectogram);
-
-    hold on;
-    subplot(length(training_set),1,i);    
-    stem(support/Fs,densities, 'c');
+    [breakpointsDens, densities, breakpointsTempo, tempos, tempoErrors] = SWTD_cascaded( calCs,0.24,0.15 );
+    %[breakpointsDens, densities, breakpointsTempo, tempos, tempoErrors] = SWTD_cascaded( calCs,0.65,0.15 );
+    [pitch] = testOnePitchAlgo(xInWindows,calCs,Fs,200,2000,ceptogram,spectogram);
     
     hold on;
     subplot(length(training_set),1,i);    
     stem(support/Fs,tempos, 'm');
+    
+    hold on;
+    subplot(length(training_set),1,i);    
+    stem(support/Fs,densities, 'c');
     
     hold on;
     subplot(length(training_set),1,i);    
@@ -29,24 +30,8 @@ for i = 1:length(training_set)
     subplot(length(training_set),1,i);    
     plot(t,new_x,'k');
     
-    hold on;
-    subplot(length(training_set),1,i);    
-    plot(support/Fs,pitchByMPM./2100, 'g');
-    
-    clarityByMPM = (clarityByMPM.^2)-1;
-    k = (clarityByMPM < -0.5);
-    clarityByMPM(k) = 0;
-    
-    hold on;
-    subplot(length(training_set),1,i);    
-    plot(support/Fs,clarityByMPM, 'r');
-    
 %     hold on;
 %     subplot(length(training_set),1,i);    
-%     plot(support/Fs,calCs * 0.85,'r');
-    
-%     hold on;
-%     subplot(length(training_set),1,i);    
-%     plot(support/Fs,breakpointsDens, 'c');
+%     plot(support/Fs,pitch./2100, 'Color',  [1, 0.3, 1]);
 
 end
