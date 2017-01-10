@@ -1,8 +1,8 @@
-function [ segmentsForViz,tpmForViz ] = easySegmentation( Cs, originalWindowLengthInMs, maxPause)
+function [ segmentsForViz,tpmForViz ] = easySegmentation( Cs, support, x, originalWindowLengthInMs, maxPause)
 
 [ segmentMatrix ] = calSegmentsByMaxPause( Cs, originalWindowLengthInMs, maxPause);
 
-[ densities,tpm ] = calFeaturesOfSegments( Cs,segmentMatrix , originalWindowLengthInMs);
+[ densities,tpm ] = calFeaturesOfSegments( Cs, support, x, segmentMatrix , originalWindowLengthInMs);
 
 segmentsForViz = zeros(1,length(Cs));
 tpmForViz  = zeros(1,length(Cs));

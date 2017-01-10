@@ -5,6 +5,7 @@ training_set = getAllFileNamesInDirectory(pathToTrainingset);
  figure('Name', 'Signal','position', [200, 200, 700, 400])
 
 for i = 1:length(training_set)
+    training_set{i}
     [x,Fs,classSignal] = readInAudioAndClassification(strcat(pathToTrainingset,training_set{i}));
     
     hold on;
@@ -14,7 +15,7 @@ for i = 1:length(training_set)
     [calCs,support] = voiceActivityDetection( x,classSignal,25,Fs );
 %    [ breakpointsDens, densities, breakpointsTempo, tempos, tempoErrors] = SWTD_cascaded( calCs,0.2,0.08 );
 %    [ breakpointsDens, densities, breakpointsTempo, tempos, tempoErrors] = SWTD_cascaded( calCs,0.65,0.15 );
-    [segments,tempos] = easySegmentation( calCs, 25, 0.1);
+    [segments,tempos] = easySegmentation( calCs, support, x, 25, 10);
     
     hold on;
     subplot(length(training_set),1,i);    

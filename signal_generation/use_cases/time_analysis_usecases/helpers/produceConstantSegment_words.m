@@ -21,9 +21,11 @@ switch avgBurstLength_w
     case 'm'
         avgBurstLength = 2;
     case 'l'
+        avgBurstLength = 3;
+    case 'xl'
         avgBurstLength = 4;
     otherwise
-        error('avgBurstLength must be \in {xs, s, m, l}') ;
+        error('avgBurstLength must be \in {xs, s, m, l,xl}') ;
 end 
 
 burstVariance = 0; 
@@ -37,7 +39,7 @@ switch burstVariance_w
     case 'l'
         burstVariance = 0.5;
     case 'xl'
-        burstVariance = 1;
+        burstVariance = 0.9;
     otherwise
         error('burstVariance must be \in {zero,x, m, l, xl}') ;
 end 
@@ -63,9 +65,9 @@ switch VtoPVariance_w
     case 'm'
         VtoPVariance = 0.2;
     case 'l'
-        VtoPVariance = 0.5;
+        VtoPVariance = 0.49;
     case 'xl'
-        VtoPVariance = 1;
+        VtoPVariance = 0.7;
     otherwise
         error('VtoPVariance must be \in {zero,s, m, l,xl}') ;
 end 

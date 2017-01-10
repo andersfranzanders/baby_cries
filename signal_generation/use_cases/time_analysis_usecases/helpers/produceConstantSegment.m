@@ -17,6 +17,7 @@ c = [];
 [numSignals, notImportant ] = size(crySet);
 maxPossibleLength = (avgBurstLength + avgBurstLength*burstVariance)*Fs;
 stretchedCrySet = [];
+
 for i = 1:numSignals;
     x_stretched = crySet{i};
     
@@ -30,8 +31,8 @@ end
 
 minBurst = avgBurstLength - avgBurstLength*burstVariance;
 maxBurst = avgBurstLength + avgBurstLength*burstVariance;
-minVtoPFraction = avgVtoPFraction - avgVtoPFraction*VtoPVariance;
-maxVtoPFraction = avgVtoPFraction + avgVtoPFraction*VtoPVariance;
+minVtoPFraction = avgVtoPFraction - VtoPVariance;
+maxVtoPFraction = avgVtoPFraction + VtoPVariance;
 minGain = 1 - gainVariance;
 maxGain = 1;
 

@@ -1,4 +1,4 @@
-function [ x, c, Fs ] = timeAnalysis_useCase01( pathToCrySet, pathToNoiseSignal,aimSNRinDB )
+function [ x, c, Fs ] = timeAnalysis_useCase03( pathToCrySet, pathToNoiseSignal,aimSNRinDB )
 
 %read in all the cry segments into a set.
 cry_set_names = getAllFileNamesInDirectory(pathToCrySet);
@@ -22,7 +22,7 @@ c = [firstPause,c];
 
 
 %%% First thing
-[ x_seg,c_seg ] = produceConstantSegment_words(crySet,Fs,'l', 'm', 'xl', 'm', 'zero', 'l');
+[ x_seg,c_seg ] = produceAcceleratingSegment_words(crySet,Fs,'m', 'xs', '-m', 'l', 's', 'l');
 x = [x,x_seg];
 c = [c,c_seg];
 
@@ -31,8 +31,18 @@ pause = zeros(1, floor( 20 *Fs));
 x = [x,pause];
 c = [c,pause];
 
-%%% second thing
-[ x_seg,c_seg ] = produceConstantSegment_words(crySet,Fs,'l', 'l', 'zero', 'l', 'zero', 'm');
+%%% next thing
+[ x_seg,c_seg ] = produceAcceleratingSegment_words(crySet,Fs,'l', 'xl', '+s', 'l', 's', 'l');
+x = [x,x_seg];
+c = [c,c_seg];
+
+%%% loooong pause
+pause = zeros(1, floor( 20 *Fs));
+x = [x,pause];
+c = [c,pause];
+
+%%% next thing
+[ x_seg,c_seg ] = produceAcceleratingSegment_words(crySet,Fs,'l', 'xl', '+s', 'm', 'l', 'l');
 x = [x,x_seg];
 c = [c,c_seg];
 
