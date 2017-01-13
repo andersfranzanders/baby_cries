@@ -8,6 +8,8 @@ switch maxCryEvents_w
         maxCryEvents = 6;
     case 'l'
         maxCryEvents = 10;
+    case 'xl'
+        maxCryEvents = 20;
     otherwise
         error('maxCryEvents must be \in {s, m, l}') ;
 end 

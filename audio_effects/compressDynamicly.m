@@ -6,8 +6,8 @@ x = normalize(x);
 %compute threshold and ratio
 rms = sqrt(mean(x.^2));
 
-threshold = (rms/aimRms)^2
-ratio = (rms/aimRms)^2
+threshold = (rms/aimRms)^2;
+ratio = (rms/aimRms)^2;
 
 if threshold < 0.4
     threshold = 0.4;

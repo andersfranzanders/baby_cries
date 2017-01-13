@@ -1,4 +1,4 @@
-function [ densities,tpm ] = calFeaturesOfSegments( Cs, support, x, segmentMatrix,windowLengthInMs )
+function [ densities,tpm,burstLengths, cryLengths, pauseLengths, energies ] = calFeaturesOfSegments( Cs, support, x, segmentMatrix,windowLengthInMs )
 
 [rows,cols] = size(segmentMatrix);
 
@@ -24,10 +24,11 @@ for i = 1:rows
     burstLengths(:,i) = calBurstLengths(Cs_segment,windowLengthInMs);
     energies(:,i) = calEnergies(Cs_segment, support_segment, x_segment);
 end
-cryLengths
-pauseLengths
-burstLengths
-energies
+
+cryLengths;
+pauseLengths;
+burstLengths;
+energies;
 
 end
 
