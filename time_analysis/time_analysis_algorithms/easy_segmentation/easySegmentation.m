@@ -1,11 +1,10 @@
-function [ segmentsForViz,densAmpelViz ] = easySegmentation( Cs, support, x, originalWindowLengthInMs, maxPause)
+function [ segmentsForViz,burstLengths, cryLengths, pauseLengths, energies,durations ] = easySegmentation( Cs, support, x, originalWindowLengthInMs, maxPause)
 
 [ segmentMatrix ] = calSegmentsByMaxPause( Cs, originalWindowLengthInMs, maxPause);
 
-[ densities,tpm, burstLengths, cryLengths, pauseLengths, energies ] = calFeaturesOfSegments( Cs, support, x, segmentMatrix , originalWindowLengthInMs);
+[ densities,tpm, burstLengths, cryLengths, pauseLengths, energies,durations ] = calFeaturesOfSegments( Cs, support, x, segmentMatrix , originalWindowLengthInMs);
 
 segmentsForViz = zeros(1,length(Cs));
-densAmpelViz = zeros(1,Length(Cs));
 
 tpmForViz  = zeros(1,length(Cs));
 [rows,cols] = size(segmentMatrix);

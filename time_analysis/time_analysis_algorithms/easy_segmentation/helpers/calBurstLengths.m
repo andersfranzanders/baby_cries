@@ -18,13 +18,16 @@ for i =2:length(seg_diff);
 end
 
 burstLengths = burstLengths * windowLengthInMs/(2*1000);
+newBurstLengths = burstLengths(1:end-1);
 
 burstData = zeros(5,1);
-burstData(1) = mean(burstLengths);
-burstData(2) = median(burstLengths);
-burstData(3) = max(burstLengths);
-burstData(4) = min(burstLengths);
-burstData(5) = std(burstLengths);
+if ~isempty(newBurstLengths)
+    burstData(1) = mean(newBurstLengths);
+    burstData(2) = median(newBurstLengths);
+    burstData(3) = max(newBurstLengths);
+    burstData(4) = min(newBurstLengths);
+    burstData(5) = std(newBurstLengths);
+end
 
 
 end

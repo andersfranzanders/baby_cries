@@ -16,14 +16,15 @@ for i =1:length(seg_diff);
 end
 
 cryLenghts = cryLenghts * windowLengthInMs/(2*1000);
+newCryLengths = cryLenghts(1:end);
 
 cryLengthData = zeros(5,1);
-if ~isempty(cryLenghts)
-    cryLengthData(1) = mean(cryLenghts);
-    cryLengthData(2) = median(cryLenghts);
-    cryLengthData(3) = max(cryLenghts);
-    cryLengthData(4) = min(cryLenghts);
-    cryLengthData(5) = std(cryLenghts);
+if ~isempty(newCryLengths)
+    cryLengthData(1) = mean(newCryLengths);
+    cryLengthData(2) = median(newCryLengths);
+    cryLengthData(3) = max(newCryLengths);
+    cryLengthData(4) = min(newCryLengths);
+    cryLengthData(5) = std(newCryLengths);
 end
 
 end

@@ -1,9 +1,17 @@
 function [ color ] = mapValueToAmpelColor(value,minValue,maxValue,isOneGood )
 
+if value < minValue
+    value = minValue;
+end
+
+if value > maxValue
+   value = maxValue; 
+end
 
 green_grad = 120;
 
 norm_value = ( (value-minValue)/(maxValue-minValue) );
+norm_value = norm_value^0.75;
 if ~isOneGood
     norm_value = 1-norm_value;
 end

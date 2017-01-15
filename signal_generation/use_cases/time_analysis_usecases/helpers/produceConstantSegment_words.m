@@ -1,4 +1,4 @@
-function [ x_seg,c ] = produceConstantSegment_words(crySet,Fs,segmentLength_w, avgBurstLength_w, burstVariance_w, avgVtoPFraction_w, VtoPVariance_w, gainVariance_w)
+function [ x_seg,c, segmentLength, avgBurstLength, burstVariance, avgVtoPFraction, VtoPVariance, gainVariance] = produceConstantSegment_words(crySet,Fs,segmentLength_w, avgBurstLength_w, burstVariance_w, avgVtoPFraction_w, VtoPVariance_w, gainVariance_w)
 
 segmentLength = 0;
 switch segmentLength_w
@@ -8,8 +8,14 @@ switch segmentLength_w
         segmentLength = 10;
     case 'l'
         segmentLength = 20;
+    case 'xl'
+        segmentLength = 40;
+    case 'xxl'
+        segmentLength = 60;
+    case 'xxxl'
+        segmentLength = 140;
     otherwise
-        error('segmentLength must be \in {s, m, l}') ;
+        error('segmentLength must be \in {s, m, l,xl}') ;
 end 
 
 avgBurstLength = 0; 
@@ -23,9 +29,11 @@ switch avgBurstLength_w
     case 'l'
         avgBurstLength = 3;
     case 'xl'
-        avgBurstLength = 4;
+        avgBurstLength = 4;    
+    case 'xxl'
+        avgBurstLength = 6;
     otherwise
-        error('avgBurstLength must be \in {xs, s, m, l,xl}') ;
+        error('avgBurstLength must be \in {xs, s, m, l,xl,xxl}') ;
 end 
 
 burstVariance = 0; 
