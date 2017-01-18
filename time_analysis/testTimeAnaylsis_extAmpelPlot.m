@@ -12,14 +12,14 @@ for i = 1:length(training_set)
     
     
     [calCs,support] = voiceActivityDetection( x,classSignal,25,Fs );
-    [segments,ampelDensities,ampelTempos,ampelBursts,ampelDurations] = easySegmentation_extampelplot( calCs, support, x, 25, 5);
+    [segments,ampelDensities,ampelTempos,ampelBursts,ampelDurations,ampelEnergies] = easySegmentation_extampelplot( calCs, support, x, 25, 5);
     
     %Plot Input Signal
     figure('Name', training_set{i},'position', [200, 200, 600, 400])
     
-    plotAmpelValues(3,1,1,90,Fs,ampelDensities);
+    %plotAmpelValues(3,1,1,90,Fs,ampelDensities);
     plotAmpelValues(3,1,2,90,Fs,ampelBursts);
-    plotAmpelValues(3,1,3,90,Fs,ampelDurations);
+    plotAmpelValues(3,1,3,90,Fs,ampelEnergies);
     
     hold on;
     subplot(3,1,1);    

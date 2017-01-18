@@ -33,7 +33,7 @@ ampelMatrix = zeros(rows,5);
 for i = 1:rows
     ampelMatrix(i,1) = support(filledSegmentMatrix(i,1));
     ampelMatrix(i,2) = support(filledSegmentMatrix(i,2));
-    ampelMatrix(i,3:5) = mapValueToCombiAmpelColor(filledValues(:,i),minHue,maxHue,minSat,maxSat);
+    ampelMatrix(i,3:5) = mapValueToCombiAmpelColor(filledValues(:,i),minHue,maxHue,minSat,maxSat,1);
     
 end
 

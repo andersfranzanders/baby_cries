@@ -34,7 +34,7 @@ for i = 1:rows
     ampelMatrix(i,1) = support(filledSegmentMatrix(i,1));
     ampelMatrix(i,2) = support(filledSegmentMatrix(i,2));
     ampelMatrix(i,3) = filledValues(3,i)/heightMax;
-    ampelMatrix(i,4:6) = mapValueToCombiAmpelColor(filledValues(:,i),hueMin,hueMax,satMin,satMax);
+    ampelMatrix(i,4:6) = mapValueToCombiAmpelColor(filledValues(:,i),hueMin,hueMax,satMin,satMax,0);
     
 end
 

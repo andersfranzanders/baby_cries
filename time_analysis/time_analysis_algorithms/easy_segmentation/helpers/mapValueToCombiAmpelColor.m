@@ -1,4 +1,4 @@
-function [ color ] = mapValueToCombiAmpelColor(values,hueMin,hueMax,satMin,satMax )
+function [ color ] = mapValueToCombiAmpelColor(values,hueMin,hueMax,satMin,satMax,invertSat )
 
 
 if values(1) < hueMin
@@ -22,7 +22,9 @@ norm_hue_value = 1-norm_hue_value;
 this_grad = norm_hue_value*green_grad;
 
 norm_sat_value = ( (values(2)-satMin)/(satMax-satMin) );
-norm_sat_value = 1-norm_sat_value;
+if invertSat
+    norm_sat_value = 1-norm_sat_value;
+end
 
 tempRGB = hsv2rgb(this_grad/360,norm_sat_value,1);
 color = zeros(1,3);
