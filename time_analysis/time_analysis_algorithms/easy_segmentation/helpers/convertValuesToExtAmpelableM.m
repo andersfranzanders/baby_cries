@@ -1,11 +1,6 @@
-function [ ampelMatrix ] = convertValuesToAmpelableM( values,segmentMatrix, support,minValue,maxValue,isOneGood,linearityFactor)
+function [ ampelMatrix ] = convertValuesToExtAmpelableM( values,segmentMatrix, support,minHue,maxHue,minSat,maxSat)
 
-silenceValue = 0;
-if isOneGood
-   silenceValue = maxValue;
-else
-   silenceValue = minValue;
-end
+silenceValue = [minHue; minSat];
 
 [rows,cols] = size(segmentMatrix);
 
@@ -18,7 +13,7 @@ for i = 1:rows
     filledValues = [filledValues,silenceValue];
     
     filledSegmentMatrix = [filledSegmentMatrix; segmentMatrix(i,:)];
-    filledValues = [filledValues,values(1,i)];
+    filledValues = [filledValues,[values(1,i);values(5,i)]];
     
     lastEnd = segmentMatrix(i,2);
 end
@@ -38,7 +33,7 @@ ampelMatrix = zeros(rows,5);
 for i = 1:rows
     ampelMatrix(i,1) = support(filledSegmentMatrix(i,1));
     ampelMatrix(i,2) = support(filledSegmentMatrix(i,2));
-    ampelMatrix(i,3:5) = mapValueToAmpelColor(filledValues(1,i),minValue,maxValue,isOneGood,linearityFactor);
+    ampelMatrix(i,3:5) = mapValueToCombiAmpelColor(filledValues(:,i),minHue,maxHue,minSat,maxSat);
     
 end
 

@@ -1,4 +1,5 @@
-function [ color ] = mapValueToAmpelColor(value,minValue,maxValue,isOneGood )
+function [ color ] = mapValueToAmpelColor(value,minValue,maxValue,isOneGood,linearityFactor )
+
 
 if value < minValue
     value = minValue;
@@ -11,7 +12,7 @@ end
 green_grad = 120;
 
 norm_value = ( (value-minValue)/(maxValue-minValue) );
-norm_value = norm_value^0.75;
+norm_value = norm_value^linearityFactor;
 if ~isOneGood
     norm_value = 1-norm_value;
 end

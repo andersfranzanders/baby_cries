@@ -1,4 +1,4 @@
-pathToTrainingset = '../audiobase/temptestbase/';
+pathToTrainingset = '../audiobase/testsignals/pitchTesting_GroundTrouth/';
 training_set = getAllFileNamesInDirectory(pathToTrainingset);
 training_set
 %Plot Input Signal
@@ -18,8 +18,8 @@ for i = 1:length(training_set)
     Cs = calculateClasses(xInWindows, classSignal);
     [pitchMatrix] = pitchDetect(xInWindows,Cs,Fs,200,2000,ceptogram,specto);
     
-    [rows,cols] = size(pitchMatrix);
-    
+    %[rows,cols] = size(pitchMatrix);
+    rows = 0;
     hold on;
     subplot(rows+2,1,1);    
     plot(t,x,'Color','k');
@@ -29,11 +29,11 @@ for i = 1:length(training_set)
     plot(support/Fs,pitchGT, 'm');
     
     
-    for j =1:rows
-        hold on;
-        subplot(rows+2,1,j+2);
-        plot(support/Fs,pitchMatrix(j,:), 'b');
-    end
+%     for j =1:rows
+%         hold on;
+%         subplot(rows+2,1,j+2);
+%         plot(support/Fs,pitchMatrix(j,:), 'b');
+%     end
     
     octaveErrors = calOctaveErrors(pitchMatrix)
     global_octave_errors = [global_octave_errors;octaveErrors];

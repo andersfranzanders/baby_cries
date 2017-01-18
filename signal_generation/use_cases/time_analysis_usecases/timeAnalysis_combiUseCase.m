@@ -32,7 +32,7 @@ c = [c,pause];
 
 
 %%% First thing
-[ x_seg,c_seg ] = produceConstantSegment_words(crySet,Fs,'xxl', 'xxl', 'zero', 'l', 'zero', 'm');
+[ x_seg,c_seg ] = produceConstantSegment_words(crySet,Fs,'xxl', 'xxl', 'zero', 'l', 'zero', 'l');
 x = [x,x_seg];
 c = [c,c_seg];
 
@@ -42,7 +42,7 @@ x = [x,pause];
 c = [c,pause];
 
 %%% First second
-[ x_seg,c_seg ] = produceConstantSegment_words(crySet,Fs,'xxxl', 'm', 'xl', 's', 'zero', 'm');
+[ x_seg,c_seg ] = produceConstantSegment_words(crySet,Fs,'xxxl', 'm', 'xl', 's', 'zero', 's');
 x = [x,x_seg];
 c = [c,c_seg];
 

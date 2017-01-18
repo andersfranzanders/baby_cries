@@ -1,11 +1,6 @@
-function [ ampelMatrix ] = convertValuesToAmpelableM( values,segmentMatrix, support,minValue,maxValue,isOneGood,linearityFactor)
+function [ ampelMatrix ] = convertValuesToCombiAmpel( hueValues,hueMin,hueMax,satValues,satMin,satMax,heightValues,heightMin,heightMax,segmentMatrix,support)
 
-silenceValue = 0;
-if isOneGood
-   silenceValue = maxValue;
-else
-   silenceValue = minValue;
-end
+silenceValue = [hueMin; satMax; heightMin];
 
 [rows,cols] = size(segmentMatrix);
 
@@ -18,7 +13,7 @@ for i = 1:rows
     filledValues = [filledValues,silenceValue];
     
     filledSegmentMatrix = [filledSegmentMatrix; segmentMatrix(i,:)];
-    filledValues = [filledValues,values(1,i)];
+    filledValues = [filledValues,[hueValues(1,i);satValues(1,i);heightValues(1,i)]];
     
     lastEnd = segmentMatrix(i,2);
 end
@@ -38,7 +33,8 @@ ampelMatrix = zeros(rows,5);
 for i = 1:rows
     ampelMatrix(i,1) = support(filledSegmentMatrix(i,1));
     ampelMatrix(i,2) = support(filledSegmentMatrix(i,2));
-    ampelMatrix(i,3:5) = mapValueToAmpelColor(filledValues(1,i),minValue,maxValue,isOneGood,linearityFactor);
+    ampelMatrix(i,3) = filledValues(3,i)/heightMax;
+    ampelMatrix(i,4:6) = mapValueToCombiAmpelColor(filledValues(:,i),hueMin,hueMax,satMin,satMax);
     
 end
 
