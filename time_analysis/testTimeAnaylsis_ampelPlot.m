@@ -31,5 +31,4 @@ for i = 1:length(training_set)
     plot(t,new_x,'k');
     
 
-
 end

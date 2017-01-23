@@ -27,7 +27,7 @@ for i = 1:length(training_set)
     
     new_x = convertToBlackX(x,calCs,support);
     subplot(3,1,1);    
-    plot(t,new_x,'k');
+    plot(t,new_x* 0.76,'k');
     
 
 
