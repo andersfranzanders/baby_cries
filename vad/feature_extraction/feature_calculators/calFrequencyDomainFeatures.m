@@ -13,10 +13,12 @@ upperBound = floor(upperHz*FFTSize/Fs);
 for i =1:rows
     abs_fft = specto(i,lowerBound:upperBound);
     
-    unnormSpecEntsFeats(i) = sum(abs_fft .*log(abs_fft ));
+    %unnormSpecEntsFeats(i) = sum(abs_fft .*log(abs_fft));
+    unnormSpecEntsFeats(i) = -sum(abs_fft .*log2(abs_fft));
     
     px = (abs_fft)/sum(abs_fft);
-    normSpecEntsFeats(i) = sum(px.*log(px));
+    %normSpecEntsFeats(i) = sum(px.*log(px));
+    normSpecEntsFeats(i) = -sum(px.*log2(px));
     
     [max_value,index] = max(specto(i,:));
     domFreqFeats(i) = index * (Fs/FFTSize);

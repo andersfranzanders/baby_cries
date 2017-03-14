@@ -1,13 +1,13 @@
-pathToCrySet = '../audiobase/truncated/clean_test/';
-pathToNoise = '../audiobase/truncated/noise_test/';
-outPath = '../audiobase/truncated/real_noise_test/';
+pathToCrySet = '../audiobase/truncated/clean/';
+pathToNoise = '../audiobase/truncated/noise/';
+outPath = '../audiobase/truncated/real_noise/10db/';
 
 
-%crySignals = {'cry_clean01','cry_clean02','cry_clean03','cry_clean04','cry_clean05','cry_clean06'};
-crySignals = {'cry_clean07'};
-SNRsinDB = [7];
-noiseSignals = {'ambience'};
-%noiseSignals = {'corridor','hospital','barcelona'};
+crySignals = {'cry_clean01','cry_clean02','cry_clean03','cry_clean04','cry_clean05','cry_clean06'};
+%crySignals = {'cry_clean07'};
+SNRsinDB = [10];
+%noiseSignals = {'ambience'};
+noiseSignals = {'corridor','hospital','barcelona'};
 
 %Plot Input Signal
 %figure('Name', 'Signal','position', [100, 100, 700, 700])

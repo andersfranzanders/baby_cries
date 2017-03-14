@@ -28,10 +28,13 @@ for i = 1:length(training_set)
     hold on;
     subplot(length(training_set),1,i);    
     plot(t,x,'Color',[0.5,0.5,0.5]);
+ 
     
     new_x = convertToBlackX(x,calCs,support);
     subplot(length(training_set),1,i);    
     plot(t,new_x,'k');
+    
+    
 
 
 end
