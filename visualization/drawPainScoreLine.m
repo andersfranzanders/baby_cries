@@ -14,6 +14,7 @@ for i =1:cols
     hold on;
     subplot(subplot_info(1),subplot_info(2),subplot_info(3));
     plot(dummy_support./Fs,dummy_data,'Color',rgb_color,'LineWidth',LineWidth);
+    axis([0 max(viz_data(2,:)) -1 1]);
 end
 
 end

@@ -1,9 +1,8 @@
 function [ viz_data ] = pipeline_calVizData_t( all_start_ends, endTime, all_pain_scores, max_score )
 
-
-pauseGreen = [0;0.95;0];
 numOfSegs  = length(all_start_ends);
 
+pauseGreen = getDescreteColorForScore(0,max_score);
 current_start = 0;
 viz_data =[]; 
 
@@ -34,10 +33,11 @@ for currentSegNum =1:numOfSegs
         end
         current_end = start_ends(2,i);
         current_score = pain_scores(i);
-        score_n = 1 - current_score/max_score;
-
-        [r,g,b] = hsv2rgb(score_n*120/360,0.8,1);
-        viz_entry = [current_start; current_end; r; g; b];
+       
+        %score_n = 1 - current_score/max_score;
+        %[r,g,b] = hsv2rgb(score_n*120/360,0.8,1);
+        color = getDescreteColorForScore(current_score,max_score);
+        viz_entry = [current_start; current_end; color];
         viz_data = [viz_data, viz_entry];
     end
 end

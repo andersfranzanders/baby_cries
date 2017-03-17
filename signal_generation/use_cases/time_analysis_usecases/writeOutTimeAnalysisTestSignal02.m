@@ -3,10 +3,10 @@ noisePath = '../audiobase/truncated/noise/';
 noiseName = 'barcelona';
 outPath = '../audiobase/testsignals/time_analysis_testing/';
 SNRinDB = 20;
-useCaseName = 'combiCase';
+useCaseName = 'masterCase02';
 
 figure('Name', 'RandomSignal','position', [100, 100, 700, 200])
-[x,Cs,Fs] = timeAnalysis_combiUseCase(pathToCrySet,strcat(noisePath,noiseName),SNRinDB);
+[x,Cs,Fs] = timeAnalysis_masterUseCase02(pathToCrySet,strcat(noisePath,noiseName),SNRinDB);
 CMatrix = convertClassSignalToMatrix(Cs,Fs);
 
 t = (0:1/Fs:(length(x)-1)/Fs);

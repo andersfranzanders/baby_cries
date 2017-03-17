@@ -22,17 +22,12 @@ c = [firstPause,c];
 
 
 %%% First thing
-[ x_seg,c_seg ] = produceConstantSegment_words(crySet,Fs,'xxl', 'l', 'zero', 'm', 'm', 'm');
+[ x_seg,c_seg ] = produceConstantSegment(crySet,Fs,15, 3, 0, 0.75, 0, 0.5);
 x = [x,x_seg];
 c = [c,c_seg];
 
-%%% loooong pause
-pause = zeros(1, floor( 60 *Fs));
-x = [x,pause];
-c = [c,pause];
-
 %%% First second
-[ x_seg,c_seg ] = produceConstantSegment_words(crySet,Fs,'xxxl', 'l', 'zero', 'm', 'm', 'm');
+[ x_seg,c_seg ] = produceConstantSegment(crySet,Fs,15, 3, 0, 0.25, 0, 0.5);
 x = [x,x_seg];
 c = [c,c_seg];
 
